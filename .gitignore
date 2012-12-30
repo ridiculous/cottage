@@ -4,3 +4,4 @@ tmp
 tmp/**/*
 .idea
 .DS_Store
+.env
