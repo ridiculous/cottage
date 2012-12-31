@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Cottage2::Application.load_tasks
+Cottage::Application.load_tasks

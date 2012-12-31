@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cottage2</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <title>Cottage</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="header">
+  <div class="wrapper">
+    <div id="logo">
+      <a href="#">Hana's Tradewind Cottage</a>
+    </div>
+    <ul id="page_nav">
+      <li>
+        <a href="#">Reservations</a>
+      </li>
+      <li>
+        <a href="#">Photos</a>
+      </li>
+      <li>
+        <a href="#">Contact</a>
+      </li>
+    </ul>
+  </div>
+</div>
 
-<%= yield %>
-
+<div id="container">
+  <div id="content">
+    <%= yield %>
+  </div>
+</div>
+<footer>
+  <div class="wrapper">
+    <span>Hana's Tradewind Cottage</span>
+    &#8226;
+    <span>(808) 248-7728</span>
+    &#8226;
+    <span>rent@tradewindscottage.net</span>
+  </div>
+</footer>
 </body>
 </html>
