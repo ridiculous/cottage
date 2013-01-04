@@ -13,11 +13,6 @@ body {
     color: #333;
 }
 
-h1 {
-    font-size: 28px;
-    color: #000;
-}
-
 #page {
     background-color: #f0f0f0;
     width: 750px;
@@ -67,20 +62,25 @@ h1 {
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
 }
 
 #logo {
     float: left;
+}
+#logo h1 {
     color: #FFF;
     font-size: 26px;
     line-height: 30px;
     padding-top: 8px;
+    margin: 0;
 }
 
-#logo a,
-#logo a:visited,
-#logo a:hover,
-#logo a:active {
+#logo h1 {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: antialiased;
@@ -90,12 +90,13 @@ h1 {
 }
 
 #page_nav {
-    float: left;
+    float: right;
     margin-top: 0;
 }
 
 #page_nav li {
     list-style: none;
+    display: inline;
     float: left;
 }
 
@@ -163,9 +164,12 @@ footer span {
 
 #front {
     height: 500px;
-    background: url('front2.png') no-repeat center center fixed;
+    background: url('front2.png') no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+h1, h2, h3, h4, h5, h6, li {
+    text-rendering: optimizeLegibility;
 }
