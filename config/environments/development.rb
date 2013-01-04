@@ -34,4 +34,18 @@ Cottage::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = {
+      :host => 'localhost',
+      :port => 3000
+  }
+  #ActionMailer::Base.smtp_settings = {
+  #    :address => "smtp.gmail.com",
+  #    :port => 587,
+  #    :authentication => :plain,
+  #    :domain => ENV['GMAIL_SMTP_USER'],
+  #    :user_name => ENV['GMAIL_SMTP_USER'],
+  #    :password => ENV['GMAIL_SMTP_PASSWORD'],
+  #}
 end

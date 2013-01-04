@@ -1,7 +1,12 @@
 <div id="front"></div>
-<div class="wrapper">
+<div class="wrapper medium">
+  <h2 class="c light-gray">
+    Welcome to the Tradewind Cottage
+  </h2>
+
   <p>
-    As you follow the private drive through the tropical flower garden to our secluded Tradewinds Cottage, you will
+    As you follow the private drive through the tropical flower garden to our
+    secluded Tradewinds Cottage, you will
     discover the Hawaii that you came to see.
   </p>
 
@@ -16,35 +21,127 @@
     slopes of Haleakala while relaxing in your private hot tub or cooking your favorite island-style feast on the
     barbeque under your covered lanai.
   </p>
-
-  Nightly rate for 2 people: $175 (+13.5% tax)
-  $25 per night for each additional person
-
-  <p>
-    Reservation Policy
-
-    Minimum stay: For Hana Cabana and Tradewinds Cottage, we have a two night minimum stay for all reservations made
-    more than a week in advance, except when there is an open night "sandwiched" between two existing reservations. We
-    are happy to accept one night stays 7 days in advance. There will be a $25 cleaning fee for a one night reservation
-    for two people and a $35 cleaning fee for three or four people who stay for only one night.
-
-    Deposits: A 25% deposit is required to reserve the cottage and the balance is due on arrival.
-
-    Payment: We accept Visa, MasterCard, American Express and Discover, however Travelers Checks or cash are preferred
-    for payment of the balance at check-in.
-
-    Check-in: Check-in time is between 3:00 and 5:00 p.m. at the main house. For a later check-in time please call to
-    make special arrangements. Check-out time is 11:00 a.m.
-
-    Cancellation Policy
-
-    Hana Cabana & Tradewinds Cottage
-    We will refund your deposit less a 10% cancellation fee if you notify us 30 days prior to your arrival.
-    Cancellations within 30 days of your arrival will be refunded only for the nights we are able to re-book the
-    accommodations minus a 10% service fee.
-  </p>
 </div>
-<div class="wrapper">
-  <h3>Check Availability</h3>
+
+<%= section_header('Reservations') %>
+
+<div class="wrapper medium-minor mb20">
+  <h4>Rates</h4>
+  <ul class="pad medium-minor">
+    <li>Nightly rate for <%= text_field_tag(:people_count, 2, class: 'instep', maxlength: 2) %> people
+      <span>+13.5% tax</span> = <span class="bold" id="rate_result">$175</span>
+    </li>
+    <li>$25 per night for each additional person.</li>
+  </ul>
+
+  <h4>Reservation Policies</h4>
+
+  <ul class="pad medium-minor">
+    <li>
+      <b>Minimum stay:</b> For Hana Cabana and Tradewinds Cottage, we have a two night minimum stay for all reservations
+      made
+      more than a week in advance, except when there is an open night "sandwiched" between two existing reservations. We
+      are happy to accept one night stays 7 days in advance. There will be a $25 cleaning fee for a one night
+      reservation
+      for two people and a $35 cleaning fee for three or four people who stay for only one night.
+    </li>
+
+    <li>
+      <b>Deposits:</b> A 25% deposit is required to reserve the cottage and the balance is due on arrival.
+    </li>
+
+    <li>
+      <b>Payment:</b> We accept Visa, MasterCard, American Express and Discover, however Travelers Checks or cash are
+      preferred
+      for payment of the balance at check-in.
+    </li>
+
+    <li>
+      <b>Check-in:</b>
+      Check-in time is between 3:00 and 5:00 li.m. at the main house. For a later check-in time please call to
+      make special arrangements. Check-out time is 11:00 a.m.
+    </li>
+
+    <li>
+      <b>Cancellation:</b>
+      We will refund your deposit less a 10% cancellation fee if you notify us
+      <span class="medium bold">30 days prior to your arrival</span>.
+      Cancellations within 30 days of your arrival will be refunded only for the nights we are able to re-book the
+      accommodations minus a 10% service fee.
+    </li>
+  </ul>
+
+  <h4>Availability</h4>
   <iframe src="https://www.homeawayconnect.com/calendar.aspx?propertyid=51970&culturename=en-US&mode=1" style="width:100%;height: 990px;"></iframe>
+</div>
+<%= section_header('Photos') %>
+<div class="wrapper medium-minor">
+  <p>Coming real soon!</p>
+</div>
+
+<%= section_header('Contact') %>
+<div class="wrapper medium-minor">
+  <div class="fl w49">
+    <p>
+      Submit a reservation inquiry using the form below.
+    </p>
+
+    <div class="pad10">
+      <%= form_tag({}, method: 'get', remote: true) do %>
+          <table class="basic w500">
+            <tr>
+              <td><%= label_tag(:name) %></td>
+              <td><%= text_field_tag(:name, nil, placeholder: 'Name') %></td>
+            </tr>
+            <tr>
+              <td><%= label_tag(:number_of_people) %></td>
+              <td><%= text_field_tag(:number_of_people, nil, placeholder: 'Number of people') %></td>
+            </tr>
+            <tr>
+              <td><%= label_tag(:email) %></td>
+              <td><%= text_field_tag(:email, nil, placeholder: 'Email') %></td>
+            </tr>
+            <tr>
+              <td><%= label_tag(:address) %></td>
+              <td><%= text_field_tag(:address, nil, placeholder: 'Address') %></td>
+            </tr>
+            <tr>
+              <td><%= label_tag(:phone) %></td>
+              <td><%= text_field_tag(:phone, nil, placeholder: 'Phone') %></td>
+            </tr>
+            <tr>
+              <td><%= label_tag(:arrival_date) %></td>
+              <td><%= text_field_tag(:arrival_date, nil, placeholder: 'Arrival date') %></td>
+            </tr>
+            <tr>
+              <td><%= label_tag(:departure_date) %></td>
+              <td><%= text_field_tag(:departure_date, nil, placeholder: 'Departure date') %></td>
+            </tr>
+            <tr>
+              <td><%= label_tag(:message) %></td>
+              <td><%= text_area_tag(:message, nil, placeholder: 'Write a message (optional)') %></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td><%= submit_tag('Submit Inquiry') %></td>
+            </tr>
+          </table>
+      <% end %>
+    </div>
+  </div>
+  <div class="fr w49">
+    <p>
+      Need help right away? Contact us directly.
+    </p>
+
+    <div class="pad10">
+      <p class="medium-major">
+        Phone: (808) 248-7728
+      </p>
+
+      <p class="medium-major">
+        Email: <a href="mailto:rent@tradewindscottage.net">rent@tradewindscottage.net</a>
+      </p>
+    </div>
+  </div>
 </div>
