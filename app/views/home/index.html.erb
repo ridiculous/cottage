@@ -48,7 +48,7 @@
       <b>Deposits:</b> A 25% deposit is required to reserve the cottage and the balance is due 30 days in advance.
     </li>
 
-    <li>
+    <li style="margin-top: -15px;">
       <b>Payment:</b> We accept Visa, MasterCard, American Express and Discover.
       <span><%= image_tag(asset_path('visa_mastercard_american_express_discover.png'), style: 'position: relative;top: 13px;') %></span>
     </li>
@@ -91,17 +91,26 @@
 </div>
 <%= section_header('Photos') %>
 <div class="wrapper medium-minor">
-  <h4>Gallery</h4>
-
-  <p>Coming real soon!</p>
+  <ul id="myGallery">
+    <li><%= image_tag(asset_path('slides/mountain_view.jpg'), title: 'Mountain View from Yard') %></li>
+    <li><%= image_tag(asset_path('slides/front_view.jpg'), title: 'Front of Cottage') %></li>
+    <li><%= image_tag(asset_path('slides/side_view.jpg'), title: 'Cottage from Yard') %></li>
+    <li><%= image_tag(asset_path('slides/deck_view.jpg'), title: 'Private Deck') %></li>
+    <li><%= image_tag(asset_path('slides/private_hot_tub.jpg'), title: 'Private Hot Tub') %></li>
+    <li><%= image_tag(asset_path('slides/kitchen.jpg'), title: 'Full Kitchen') %></li>
+    <li><%= image_tag(asset_path('slides/living_dining_area.jpg'), title: 'Living / Dining Area') %></li>
+    <li><%= image_tag(asset_path('slides/master_bedroom.jpg'), title: 'Master Bedroom') %></li>
+    <li><%= image_tag(asset_path('slides/second_bedroom.jpg'), title: 'Second Bedroom') %></li>
+    <li><%= image_tag(asset_path('slides/back_yard.jpg'), title: 'View from Back Deck') %></li>
+  </ul>
   <h4>Location</h4>
 
   <p>The map below shows the route from the Kahului Airport (OGG) to the Tradewind Cottage (Approximately 52 miles).</p>
   <iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=d&amp;source=s_d&amp;saddr=OGG,+Kahului,+HI&amp;daddr=143+Alalele+Road,+Hana,+HI&amp;hl=en&amp;geocode=FXDPPgEdffKs9iFBkBrdYqlewykZBI4bsNJUeTFBkBrdYqleww%3BFf0nPQEdw12z9inhwr1do61UeTE8DGQ9X2wytA&amp;aq=0&amp;oq=ogg&amp;sll=20.785149,-156.017213&amp;sspn=0.010472,0.016544&amp;g=143+Alalele+Road,+Hana,+HI&amp;mra=ls&amp;ie=UTF8&amp;ll=20.86007,-156.230615&amp;spn=0.15616,0.42713&amp;t=m&amp;output=embed"></iframe>
   <!--<br/>-->
   <!--<small>-->
-    <!--<a href="https://maps.google.com/maps?f=d&amp;source=embed&amp;saddr=OGG,+Kahului,+HI&amp;daddr=143+Alalele+Road,+Hana,+HI&amp;hl=en&amp;geocode=FXDPPgEdffKs9iFBkBrdYqlewykZBI4bsNJUeTFBkBrdYqleww%3BFf0nPQEdw12z9inhwr1do61UeTE8DGQ9X2wytA&amp;aq=0&amp;oq=ogg&amp;sll=20.785149,-156.017213&amp;sspn=0.010472,0.016544&amp;g=143+Alalele+Road,+Hana,+HI&amp;mra=ls&amp;ie=UTF8&amp;ll=20.86007,-156.230615&amp;spn=0.15616,0.42713&amp;t=m" style="color:#0000FF;text-align:left">View-->
-      <!--Larger Map</a></small>-->
+  <!--<a href="https://maps.google.com/maps?f=d&amp;source=embed&amp;saddr=OGG,+Kahului,+HI&amp;daddr=143+Alalele+Road,+Hana,+HI&amp;hl=en&amp;geocode=FXDPPgEdffKs9iFBkBrdYqlewykZBI4bsNJUeTFBkBrdYqleww%3BFf0nPQEdw12z9inhwr1do61UeTE8DGQ9X2wytA&amp;aq=0&amp;oq=ogg&amp;sll=20.785149,-156.017213&amp;sspn=0.010472,0.016544&amp;g=143+Alalele+Road,+Hana,+HI&amp;mra=ls&amp;ie=UTF8&amp;ll=20.86007,-156.230615&amp;spn=0.15616,0.42713&amp;t=m" style="color:#0000FF;text-align:left">View-->
+  <!--Larger Map</a></small>-->
 </div>
 <%= section_header('Contact') %>
 <div class="wrapper medium-minor">
@@ -168,7 +177,7 @@
       </p>
     </div>
     <div>
-      <%= image_tag(asset_path('hamoa_overview.jpg'), width: '310') %>
+      <%= image_tag(asset_path('hamoa_overview.png'), width: '310') %>
     </div>
   </div>
 </div>
