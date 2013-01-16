@@ -25,6 +25,11 @@
 <%= section_header('Reservations') %>
 
 <div class="wrapper medium-minor mb20">
+  <p class="medium">
+    Planning a trip to the east side of Maui? Be sure to book your stay with us as early as possible.
+    We are usually booked months in advance.
+  </p>
+
   <h4>Rates</h4>
   <ul class="pad medium-minor">
     <li>Nightly rate for <%= text_field_tag(:people_count, 2, class: 'instep', maxlength: 2) %> people
@@ -87,26 +92,32 @@
   </ul>
 
   <h4>Availability</h4>
-  <iframe src="https://www.homeawayconnect.com/calendar.aspx?propertyid=51970&culturename=en-US&mode=1" style="width:100%;height: 990px;"></iframe>
+  <% unless Rails.env.development? %>
+      <iframe src="https://www.homeawayconnect.com/calendar.aspx?propertyid=51970&culturename=en-US&mode=1" style="width:100%;height: 990px;"></iframe>
+  <% end %>
 </div>
 <%= section_header('Photos') %>
 <div class="wrapper medium-minor">
-  <ul id="myGallery">
-    <li><%= image_tag(asset_path('slides/mountain_view.jpg'), title: 'Mountain View from Yard') %></li>
-    <li><%= image_tag(asset_path('slides/front_view.jpg'), title: 'Front of Cottage') %></li>
-    <li><%= image_tag(asset_path('slides/side_view.jpg'), title: 'Cottage from Yard') %></li>
-    <li><%= image_tag(asset_path('slides/deck_view.jpg'), title: 'Private Deck') %></li>
-    <li><%= image_tag(asset_path('slides/private_hot_tub.jpg'), title: 'Private Hot Tub') %></li>
-    <li><%= image_tag(asset_path('slides/kitchen.jpg'), title: 'Full Kitchen') %></li>
-    <li><%= image_tag(asset_path('slides/living_dining_area.jpg'), title: 'Living / Dining Area') %></li>
-    <li><%= image_tag(asset_path('slides/master_bedroom.jpg'), title: 'Master Bedroom') %></li>
-    <li><%= image_tag(asset_path('slides/second_bedroom.jpg'), title: 'Second Bedroom') %></li>
-    <li><%= image_tag(asset_path('slides/back_yard.jpg'), title: 'View from Back Deck') %></li>
-  </ul>
+  <div style="height: 615px;">
+    <ul id="myGallery">
+      <li><%= image_tag(asset_path('slides/mountain_view.jpg'), title: 'Mountain View from Yard') %></li>
+      <li><%= image_tag(asset_path('slides/front_view.jpg'), title: 'Front of Cottage') %></li>
+      <li><%= image_tag(asset_path('slides/side_view.jpg'), title: 'Cottage from Yard') %></li>
+      <li><%= image_tag(asset_path('slides/deck_view.jpg'), title: 'Private Deck & BBQ') %></li>
+      <li><%= image_tag(asset_path('slides/private_hot_tub.jpg'), title: 'Private Hot Tub') %></li>
+      <li><%= image_tag(asset_path('slides/kitchen.jpg'), title: 'Full Kitchen') %></li>
+      <li><%= image_tag(asset_path('slides/living_dining_area.jpg'), title: 'Living / Dining Area') %></li>
+      <li><%= image_tag(asset_path('slides/master_bedroom.jpg'), title: 'Master Bedroom') %></li>
+      <li><%= image_tag(asset_path('slides/second_bedroom.jpg'), title: 'Second Bedroom') %></li>
+      <li><%= image_tag(asset_path('slides/back_yard.jpg'), title: 'View from Back Deck') %></li>
+    </ul>
+  </div>
   <h4>Location</h4>
 
   <p>The map below shows the route from the Kahului Airport (OGG) to the Tradewind Cottage (Approximately 52 miles).</p>
-  <iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=d&amp;source=s_d&amp;saddr=OGG,+Kahului,+HI&amp;daddr=143+Alalele+Road,+Hana,+HI&amp;hl=en&amp;geocode=FXDPPgEdffKs9iFBkBrdYqlewykZBI4bsNJUeTFBkBrdYqleww%3BFf0nPQEdw12z9inhwr1do61UeTE8DGQ9X2wytA&amp;aq=0&amp;oq=ogg&amp;sll=20.785149,-156.017213&amp;sspn=0.010472,0.016544&amp;g=143+Alalele+Road,+Hana,+HI&amp;mra=ls&amp;ie=UTF8&amp;ll=20.86007,-156.230615&amp;spn=0.15616,0.42713&amp;t=m&amp;output=embed"></iframe>
+  <% unless Rails.env.development? %>
+      <iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=d&amp;source=s_d&amp;saddr=OGG,+Kahului,+HI&amp;daddr=143+Alalele+Road,+Hana,+HI&amp;hl=en&amp;geocode=FXDPPgEdffKs9iFBkBrdYqlewykZBI4bsNJUeTFBkBrdYqleww%3BFf0nPQEdw12z9inhwr1do61UeTE8DGQ9X2wytA&amp;aq=0&amp;oq=ogg&amp;sll=20.785149,-156.017213&amp;sspn=0.010472,0.016544&amp;g=143+Alalele+Road,+Hana,+HI&amp;mra=ls&amp;ie=UTF8&amp;ll=20.86007,-156.230615&amp;spn=0.15616,0.42713&amp;t=m&amp;output=embed"></iframe>
+  <% end %>
   <!--<br/>-->
   <!--<small>-->
   <!--<a href="https://maps.google.com/maps?f=d&amp;source=embed&amp;saddr=OGG,+Kahului,+HI&amp;daddr=143+Alalele+Road,+Hana,+HI&amp;hl=en&amp;geocode=FXDPPgEdffKs9iFBkBrdYqlewykZBI4bsNJUeTFBkBrdYqleww%3BFf0nPQEdw12z9inhwr1do61UeTE8DGQ9X2wytA&amp;aq=0&amp;oq=ogg&amp;sll=20.785149,-156.017213&amp;sspn=0.010472,0.016544&amp;g=143+Alalele+Road,+Hana,+HI&amp;mra=ls&amp;ie=UTF8&amp;ll=20.86007,-156.230615&amp;spn=0.15616,0.42713&amp;t=m" style="color:#0000FF;text-align:left">View-->
@@ -120,7 +131,7 @@
     </p>
 
     <div class="pad10">
-      <%= form_tag({}, method: 'get', remote: true) do %>
+      <%= form_tag(contact_create_path) do %>
           <table class="basic w500">
             <tr>
               <td><%= label_tag(:name) %></td>
@@ -183,5 +194,27 @@
 </div>
 <%= section_header('Hana') %>
 <div class="wrapper medium-minor">
-  <p>Coming soon!</p>
+  <p class="medium">
+    Hana is a beautiful, yet small and remote town. However there are a lot of activities to keep you busy, if that's
+    your thing.
+    I usually try to do as little as possible, chilling at the beach or in fresh water pools.
+  </p>
+
+  <p>
+    Links to activities around Hana:
+  </p>
+  <ul class="pad">
+    <li>Info on Hana: <a target="_blank" href="http://www.hanamaui.com">hanamaui.com</a></li>
+    <li>Go hang gliding down the road (1 minute away):
+      <a target="_blank" href="http://www.hangglidingmaui.com">hangglidingmaui.com</a></li>
+    <li>Spelunking in lava tube (2 minutes away): <a target="_blank" href="http://www.mauicave.com">mauicave.com</a>
+    </li>
+    <li>Guided hike and taro patch tour at Kapahu Living Farm:
+      <a target="_blank" href="http://kipahulu.org/hike.html">kipahulu.org/hike.html</a></li>
+    <li>Ohe’o (7 Sacred Pools) and bamboo forest:
+      <a target="_blank" href="http://www.nps.gov/hale/index.htm">nps.gov/hale/</a></li>
+    <li>Horse back riding: <a target="_blank" href="http://www.mauistables.com">mauistables.com</a></li>
+    <li>Go kayaking, snorkeling, surfing, or free diving:
+      <a target="_blank" href="http://www.hanabaykayaks.com">hanabaykayaks.com</a></li>
+  </ul>
 </div>

@@ -1,5 +1,7 @@
 Cottage::Application.routes.draw do
 
+  post "contact/create"
+
   resources :reservations
 
   resources :home, only: :index

@@ -1,7 +1,7 @@
 class InquiryMailer < ActionMailer::Base
-
-  def new_inquiry
-    mail(to: "Ryan <ryan@dontspreadit.com>", subject: "New inquiry for the Tradewinds Cottage!", from: "arebuckley@gmail.com")
+  default :from => 'info@tradewindscottage.net'
+  def new_inquiry(options={})
+    mail(to: "Brianna <brianna@tradewindscottage.net", subject: "New inquiry for the Tradewinds Cottage!")
   end
 
 end
