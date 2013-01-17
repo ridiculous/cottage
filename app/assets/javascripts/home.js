@@ -27,6 +27,7 @@ $(function () {
         .bind('ajax:success', function (evt, data, status, xhr) {
             if ($('div.field_with_errors').length) $('div.field_with_errors').children().unwrap('<div class="field_with_errors" />');
             $('#form_error_box').hide().removeClass('in');
+            $('.form-text').html('');
             $(this).slideUp(200, function () {
                 $('#form_success_box').fadeIn(200);
             });
