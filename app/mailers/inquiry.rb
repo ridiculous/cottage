@@ -1,5 +1,5 @@
-class InquiryMailer < ActionMailer::Base
-  default :from => 'info@tradewindscottage.net'
+class Inquiry < ActionMailer::Base
+  default :from => 'System - Tradewinds Cottage <info@tradewindscottage.net>'
   # Brianna <brianna@tradewindscottage.net
   def new_inquiry(contact)
     @contact = contact
