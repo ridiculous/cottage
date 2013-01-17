@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    #InquiryMailer.new_inquiry.deliver
+    @contact = Contact.new
   end
 end

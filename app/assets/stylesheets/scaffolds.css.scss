@@ -33,10 +33,9 @@ div {
   color: green;
 }
 
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+.field_with_errors input {
+  background-color: #FCF8E3;
+  border: 1px solid #000;
 }
 
 #error_explanation {
