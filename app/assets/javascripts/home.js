@@ -46,6 +46,6 @@ $(function () {
             errorText += "</ul>";
             $('.error-message').html(errorText);
         });
-
+    $('#front').css('background-image', "url('assets/frontx3.jpg')").slideDown(1000)
     $('#contact_arrival_date, #contact_departure_date').datepicker()
 });
