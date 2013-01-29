@@ -396,12 +396,10 @@ input.instep {
     border-radius: 4px;
 }
 
-.fade {
-    opacity: 0;
-    -webkit-transition: opacity 0.15s linear;
-    -moz-transition: opacity 0.15s linear;
-    -o-transition: opacity 0.15s linear;
-    transition: opacity 0.15s linear;
+.alert-info {
+    color: #3A87AD;
+    background-color: #D9EDF7;
+    border-color: #BCE8F1;
 }
 
 .alert .close {
@@ -419,6 +417,14 @@ button.close {
     -webkit-appearance: none;
 }
 
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity 0.15s linear;
+    -moz-transition: opacity 0.15s linear;
+    -o-transition: opacity 0.15s linear;
+    transition: opacity 0.15s linear;
+}
+
 .close {
     float: right;
     font-size: 20px;
@@ -432,10 +438,4 @@ button.close {
 
 .in {
     opacity: 1;
-}
-
-.alert-info {
-    color: #3A87AD;
-    background-color: #D9EDF7;
-    border-color: #BCE8F1;
 }
