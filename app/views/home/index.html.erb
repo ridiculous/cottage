@@ -39,6 +39,42 @@
     <li><b>Note:</b> There is a charge of $25 per night for each additional person.</li>
   </ul>
 
+  <h4>Availability</h4>
+
+  <p class="medium">
+    Our next opening is on <span class="green"><%= @first_availability.strftime('%m/%d/%Y') %></span>.
+  </p>
+
+  <p class="medium">
+    Check availability for your trip by entering your arrival and departure date below. Optionally, you can
+    <a href="javascript:;" id="view_entire_calendar" class="linked">view the entire calendar</a>.
+  </p>
+
+  <div id="error_box" class="alert alert-block alert-error fade" style="display: none;">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <p class="error-message" style="margin: 3px;"></p>
+  </div>
+  <%= form_tag(calendar_create_path, remote: true, id: 'check_avail') do %>
+      <table class="basic w600" style="padding-left: 40px;">
+        <tr>
+          <td style="width: 120px"><label for="arrival_date_r">Arrival date</label></td>
+          <td style="width: 405px"><%= text_field_tag(:arrival_date, @first_availability.strftime('%m/%d/%Y'), placeholder: 'Arrival date', id: 'arrival_date_r', class: 'dp') %></td>
+        </tr>
+        <tr>
+          <td><label for="departure_date_r">Departure date</label></td>
+          <td><%= text_field_tag(:departure_date, nil, placeholder: 'Departure date', id: 'departure_date_r', class: 'dp') %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <%= submit_tag('Check Availability', disable_with: 'Checking ...') %>
+            <span class="available">Available! <a href="#contact" class="send_inquiry">Submit an inquiry</a></span>
+            <span class="unavailable">Unavailable</span>
+          </td>
+        </tr>
+      </table>
+  <% end %>
+
   <h4>Reservation Policies</h4>
 
   <ul class="pad medium-minor">
@@ -87,20 +123,9 @@
       To provide a smoke free environment for our guests, smoking is only allowed outside. <br/>
       No pets are allowed at the cottage.<br/>
 
-      <p><a href="#contact">Make a reservation inquiry.</a></p>
+      <p><a href="#contact" class="linked">Make a reservation inquiry.</a></p>
     </li>
   </ul>
-
-  <h4>Availability</h4>
-  <% unless Rails.env.development? %>
-      <iframe src="https://www.homeawayconnect.com/calendar.aspx?propertyid=51970&culturename=en-US&mode=1" style="width:100%;height: 990px;"></iframe>
-  <% else %>
-      <table id="calMonthAvail201302" cellspacing="0" cellpadding="2" rules="all" border="1" style="border-width:1px;border-style:solid;border-color:silver;font-size:0.85em;width:100%;border-collapse:collapse;">
-        <tbody><tr align="center"><td colspan="7" style="background-color:Silver;"><table class="ACMHV" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
-          <tbody><tr align="center"><td style="width:70%;">February 2013</td></tr>
-          </tbody></table></td></tr><tr align="center"><td class="ACDH">S</td><td class="ACDH">M</td><td class="ACDH">T</td><td class="ACDH">W</td><td class="ACDH">T</td><td class="ACDH">F</td><td class="ACDH">S</td></tr><tr align="center"><td class="ACOMD">27</td><td class="ACOMD">28</td><td class="ACOMD">29</td><td class="ACOMD">30</td><td class="ACOMD">31</td><td class="ACUDV">1</td><td class="ACUDV">2</td></tr><tr align="center"><td class="ACUDV">3</td><td class="ACUDV">4</td><td class="ACUDV">5</td><td class="ACUDV">6</td><td class="ACUDV">7</td><td class="ACUDV">8</td><td class="ACUDV">9</td></tr><tr align="center"><td class="ACUDV">10</td><td class="ACUDV">11</td><td class="ACUDV">12</td><td class="ACUDV">13</td><td class="ACUDV">14</td><td class="ACUDV">15</td><td class="ACUDV">16</td></tr><tr align="center"><td class="ACUDV">17</td><td class="ACUDV">18</td><td class="ACUDV">19</td><td class="ACUDV">20</td><td class="ACUDV">21</td><td class="ACUDV">22</td><td class="ACUDV">23</td></tr><tr align="center"><td class="ACWDV">24</td><td class="ACUDV">25</td><td class="ACUDV">26</td><td class="ACUDV">27</td><td class="ACUDV">28</td><td class="ACOMD">1</td><td class="ACOMD">2</td></tr><tr align="center"><td class="ACOMD">3</td><td class="ACOMD">4</td><td class="ACOMD">5</td><td class="ACOMD">6</td><td class="ACOMD">7</td><td class="ACOMD">8</td><td class="ACOMD">9</td></tr>
-        </tbody></table>
-  <% end %>
 </div>
 <%= section_header('Photos') %>
 <div class="wrapper medium-minor">
@@ -131,7 +156,7 @@
     </div>
     <div id="form_error_box" class="alert alert-block alert-error fade" style="display: none;">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <h4 class="alert-heading">Oops, something's not right!</h4>
+      <h4 class="alert-heading">Something is not right!</h4>
 
       <p class="error-message"></p>
     </div>
@@ -160,11 +185,11 @@
             </tr>
             <tr>
               <td><%= f.label(:arrival_date) %></td>
-              <td><%= f.text_field(:arrival_date, placeholder: 'Arrival date') %></td>
+              <td><%= f.text_field(:arrival_date, placeholder: 'Arrival date', class: 'dp') %></td>
             </tr>
             <tr>
               <td><%= f.label(:departure_date) %></td>
-              <td><%= f.text_field(:departure_date, placeholder: 'Departure date') %></td>
+              <td><%= f.text_field(:departure_date, placeholder: 'Departure date', class: 'dp') %></td>
             </tr>
             <tr>
               <td><%= f.label(:message) %></td>
@@ -189,7 +214,7 @@
       </p>
 
       <p class="medium-major">
-        Email: <a href="mailto:brianna@tradewindscottage.net">brianna@tradewindscottage.net</a>
+        Email: <a href="mailto:brianna@tradewindscottage.net" class="linked">brianna@tradewindscottage.net</a>
       </p>
     </div>
     <div>
@@ -210,21 +235,21 @@
   </p>
 
   <p>
-    For more information on Hana please visit <a target="_blank" href="http://www.hanamaui.com">hanamaui.com</a>
+    For more information on Hana please visit <a target="_blank" href="http://www.hanamaui.com" class="linked">hanamaui.com</a>
   </p>
   <h4>Activities</h4>
   <ul class="pad">
     <li>Go hang gliding down the road (1 minute away):
-      <a target="_blank" href="http://www.hangglidingmaui.com">hangglidingmaui.com</a></li>
-    <li>Spelunking in lava tube (2 minutes away): <a target="_blank" href="http://www.mauicave.com">mauicave.com</a>
+      <a target="_blank" href="http://www.hangglidingmaui.com" class="linked">hangglidingmaui.com</a></li>
+    <li>Spelunking in lava tube (2 minutes away): <a target="_blank" href="http://www.mauicave.com" class="linked">mauicave.com</a>
     </li>
     <li>Go kayaking, snorkeling, surfing, or free diving (10 minutes away):
-      <a target="_blank" href="http://www.hanabaykayaks.com">hanabaykayaks.com</a></li>
+      <a target="_blank" href="http://www.hanabaykayaks.com" class="linked">hanabaykayaks.com</a></li>
     <li>Guided hike and taro patch tour at Kapahu Living Farm (45 minutes away):
-      <a target="_blank" href="http://kipahulu.org/hike.html">kipahulu.org/hike.html</a></li>
+      <a target="_blank" href="http://kipahulu.org/hike.html" class="linked">kipahulu.org/hike.html</a></li>
     <li>Ohe’o (7 Sacred Pools) and bamboo forest (45 minutes away):
-      <a target="_blank" href="http://www.nps.gov/hale/index.htm">nps.gov/hale/</a></li>
-    <li>Horse back riding (45 minutes away): <a target="_blank" href="http://www.mauistables.com">mauistables.com</a>
+      <a target="_blank" href="http://www.nps.gov/hale/index.htm" class="linked">nps.gov/hale/</a></li>
+    <li>Horse back riding (45 minutes away): <a target="_blank" href="http://www.mauistables.com" class="linked">mauistables.com</a>
     </li>
   </ul>
   <h4>Location</h4>

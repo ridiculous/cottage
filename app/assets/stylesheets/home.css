@@ -336,6 +336,14 @@ table.basic td {
     width: 500px;
 }
 
+.w600 {
+    width: 600px;
+}
+
+.w700 {
+    width: 700px;
+}
+
 .w49 {
     width: 49%;
 }
@@ -438,4 +446,19 @@ button.close {
 
 .in {
     opacity: 1;
+}
+
+.available,
+.unavailable {
+    padding: 0 5px;
+    display: none;
+}
+
+.unavailable {
+    color: #DF0101
+}
+
+.green,
+.available {
+    color: #088A08
 }

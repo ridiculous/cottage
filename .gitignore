@@ -6,3 +6,4 @@ tmp/**/*
 .idea/*
 .DS_Store
 .env
+.idea/misc.xml

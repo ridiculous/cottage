@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130117063034) do
+ActiveRecord::Schema.define(:version => 20130211003445) do
+
+  create_table "calendars", :force => true do |t|
+    t.string   "available_dates", :limit => 5000
+    t.datetime "refresh_date"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
 
   create_table "contacts", :force => true do |t|
     t.string   "name"
