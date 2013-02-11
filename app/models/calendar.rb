@@ -7,15 +7,14 @@ class Calendar < ActiveRecord::Base
 
   serialize :available_dates, Array
 
-  before_create :set_refresh_date
-  before_save :set_refresh_date
+  after_validation :set_refresh_date
 
   class << self
 
     def check_availability(arrival, depart)
       available_dates = last.available_dates
       available = true
-      arrival.upto(depart).each do |date|
+      arrival.upto(depart - 1.day).each do |date|
         available = false if available_dates.exclude?(date.to_s)
       end
       available
