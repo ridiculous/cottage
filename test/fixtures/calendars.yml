@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  available_dates: MyString
+  refresh_date: 2013-02-10
+
+two:
+  available_dates: MyString
+  refresh_date: 2013-02-10
