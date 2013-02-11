@@ -62,7 +62,7 @@
         </tr>
         <tr>
           <td><label for="departure_date_r">Departure date</label></td>
-          <td><%= text_field_tag(:departure_date, nil, placeholder: 'Departure date', id: 'departure_date_r', class: 'dp') %></td>
+          <td><%= text_field_tag(:departure_date, (@first_availability + 2.days).strftime('%m/%d/%Y'), placeholder: 'Departure date', id: 'departure_date_r', class: 'dp') %></td>
         </tr>
         <tr>
           <td></td>
