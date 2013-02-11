@@ -105,11 +105,11 @@ $(function () {
                 $cal.slideDown(200);
                 $('#check_avail').slideUp(200);
             }
-            $(this).text('hide the entire calendar');
+            $(this).text('hide the calendar');
         } else {
             $cal.slideUp(200);
             $('#check_avail').slideDown(200);
-            $(this).text('view the entire calendar');
+            $(this).text('view the calendar');
         }
     });
 
