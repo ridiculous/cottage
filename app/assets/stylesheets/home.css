@@ -194,7 +194,6 @@ footer span {
 #front {
     height: 800px;
     background: none;
-    background-image: url('frontx3.jpg');
     background-position: center bottom;
     background-repeat: no-repeat;
     -webkit-background-size: cover;

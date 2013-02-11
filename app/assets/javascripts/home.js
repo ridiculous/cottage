@@ -53,7 +53,7 @@ $(function () {
             errorText += "</ul>";
             $('#form_error_box').find('.error-message').html(errorText);
         });
-    $('#front').css('background-image', "url('assets/frontx3.jpg')").show();
+    $('#front').css('background-image', "url('assets/front-main.jpg')").show();
     $('.dp').datepicker();
     $('#page_nav li a, .send_inquiry').bind('click', function () {
         $.scrollTo($(this).attr('href'), 500);

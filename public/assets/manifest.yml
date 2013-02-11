@@ -35,12 +35,8 @@ credit_card_logos_small.jpg: credit_card_logos_small-89680fb3bbc84fdb9df2172e445
 credit_card_logos_small/index.jpg: credit_card_logos_small-89680fb3bbc84fdb9df2172e445dd39e.jpg
 favicon.ico: favicon-362757aeb1b7a682550f9670c0125f24.ico
 favicon/index.ico: favicon-362757aeb1b7a682550f9670c0125f24.ico
-front2.jpg: front2-093e74105941f701c2676ced522aa9cb.jpg
-front2/index.jpg: front2-093e74105941f701c2676ced522aa9cb.jpg
-frontx3.jpg: frontx3-9864499f6a90f4650e6c534f0c686404.jpg
-frontx3/index.jpg: frontx3-9864499f6a90f4650e6c534f0c686404.jpg
-frontx4.jpg: frontx4-af24d3c3d710505583c4689ac469069d.jpg
-frontx4/index.jpg: frontx4-af24d3c3d710505583c4689ac469069d.jpg
+front-main.jpg: front-main-b3bedcc797d874f3407578374ffcab39.jpg
+front-main/index.jpg: front-main-b3bedcc797d874f3407578374ffcab39.jpg
 hamoa_overview.jpg: hamoa_overview-e1b108836e282c04689011bc668b8344.jpg
 hamoa_overview/index.jpg: hamoa_overview-e1b108836e282c04689011bc668b8344.jpg
 hamoa_overview.png: hamoa_overview-35c2eb73d0565d9b00a7952099ce04e6.png
@@ -113,7 +109,7 @@ themes/light/prev.png: themes/light/prev-b9a218e692a85f82daaaacaf0ff1d101.png
 themes/light/prev/index.png: themes/light/prev-b9a218e692a85f82daaaacaf0ff1d101.png
 visa_mastercard_american_express_discover.png: visa_mastercard_american_express_discover-1bc197e605632f95cc0a5f1afdd1e753.png
 visa_mastercard_american_express_discover/index.png: visa_mastercard_american_express_discover-1bc197e605632f95cc0a5f1afdd1e753.png
-application.js: application-7f5fa8992efc2ab4fb47a695507d96d1.js
-application/index.js: application-7f5fa8992efc2ab4fb47a695507d96d1.js
-application.css: application-7606b1d4fd90c48e6166c42344e9153a.css
-application/index.css: application-7606b1d4fd90c48e6166c42344e9153a.css
+application.js: application-18a1d6b115cb731d38d0b0de5ce8bfe1.js
+application/index.js: application-18a1d6b115cb731d38d0b0de5ce8bfe1.js
+application.css: application-dbc99ae06cbee1981a612144b54a86c7.css
+application/index.css: application-dbc99ae06cbee1981a612144b54a86c7.css
