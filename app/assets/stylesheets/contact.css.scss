@@ -15,13 +15,13 @@ a.linked:visited {
   display: inline-block;
   overflow: hidden;
 
-  vertical-align: top;
-
   -webkit-perspective: 400px;
   -moz-perspective: 400px;
+  perspective: 400px;
 
   -webkit-perspective-origin: 50% 50%;
   -moz-perspective-origin: 50% 50%;
+  perspective-origin: 50% 50%;
 }
 .roll span {
   display: block;
@@ -30,18 +30,22 @@ a.linked:visited {
 
   -webkit-transition: all 400ms ease;
   -moz-transition: all 400ms ease;
+  transition: all 400ms ease;
 
   -webkit-transform-origin: 50% 0%;
   -moz-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
 
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 .roll:hover span {
   background: #111;
 
   -webkit-transform: translate3d( 0px, 0px, -30px ) rotateX( 90deg );
   -moz-transform: translate3d( 0px, 0px, -30px ) rotateX( 90deg );
+  transform: translate3d( 0px, 0px, -30px ) rotateX( 90deg );
 }
 .roll span:after {
   content: attr(data-title);
@@ -59,7 +63,9 @@ a.linked:visited {
 
   -webkit-transform-origin: 50% 0%;
   -moz-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
 
   -webkit-transform: translate3d( 0px, 105%, 0px ) rotateX( -90deg );
   -moz-transform: translate3d( 0px, 105%, 0px ) rotateX( -90deg );
+  transform: translate3d( 0px, 105%, 0px ) rotateX( -90deg );
 }

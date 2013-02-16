@@ -20,6 +20,10 @@ class Calendar < ActiveRecord::Base
       available
     end
 
+    # Calendar css classes:
+    # - ACADV available
+    # - ACWDV weekend day available
+
     def refresh_available_dates
       agent = Mechanize.new do |a|
         a.user_agent_alias = 'Mac Safari'
