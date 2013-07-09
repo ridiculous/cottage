@@ -4,6 +4,23 @@
     Welcome to Hana's Tradewind Cottage
   </h2>
 
+  <div class="fr box blue ml10" style="width: 350px;">
+    <div class="inner-box">
+      <h4 class="mar10 c">Whats new?</h4>
+
+      <div class="pl10 pr10">
+        <p>
+          It's Summer time! We usually get avocados and mountain apples when that happens!
+        </p>
+
+        <p>
+          Upgraded our Wi-Fi service (finally). This time we went with a
+          fancy touch screen router called the <a href="http://www.securifi.com/almond" target="_blank">Almond</a>.
+          Sounds delicious ...
+        </p>
+      </div>
+    </div>
+  </div>
   <p>
     As you follow the private drive through the tropical flower garden to our
     secluded Tradewinds Cottage, you will
@@ -42,7 +59,8 @@
   <h4>Availability</h4>
 
   <p class="medium">
-    Our next opening is on <span class="green"><%= @first_availability.strftime('%m/%d/%Y') %></span>.
+    Our next opening is <span class="green"><%= @availability.first.to_formatted_s(:long) %></span>
+    for <%= pluralize(@availability.duration, 'night') %>. <%= @availability.errors.try(:pop) %>
   </p>
 
   <p class="medium">
@@ -58,18 +76,20 @@
       <table class="basic w600" style="padding-left: 40px;">
         <tr>
           <td style="width: 120px"><label for="arrival_date_r">Arrival date</label></td>
-          <td style="width: 405px"><%= text_field_tag(:arrival_date, @first_availability.strftime('%m/%d/%Y'), placeholder: 'Arrival date', id: 'arrival_date_r', class: 'dp') %></td>
+          <td style="width: 405px"><%= text_field_tag(:arrival_date, @availability.first.strftime('%m/%d/%Y'), placeholder: 'Arrival date', id: 'arrival_date_r', class: 'dp') %></td>
         </tr>
         <tr>
           <td><label for="departure_date_r">Departure date</label></td>
-          <td><%= text_field_tag(:departure_date, (@first_availability + 2.days).strftime('%m/%d/%Y'), placeholder: 'Departure date', id: 'departure_date_r', class: 'dp') %></td>
+          <td><%= text_field_tag(:departure_date, (@availability.first + 2.days).strftime('%m/%d/%Y'), placeholder: 'Departure date', id: 'departure_date_r', class: 'dp') %></td>
         </tr>
         <tr>
           <td></td>
           <td>
             <%= submit_tag('Check Availability', disable_with: 'Checking ...') %>
-            <span class="available">Available! <a href="#contact" class="send_inquiry linked">Submit an inquiry</a></span>
-            <span class="unavailable">Unavailable</span>
+            <span class="available">Available! <a href="#contact" class="send_inquiry linked">Submit an
+              inquiry</a></span>
+            <span class="unavailable">Unavailable.<i style="color:#666"> Try our sister site
+              <a href="http://hanamaui.net" class="linked">hanamaui.net</a></i></span>
           </td>
         </tr>
       </table>
@@ -236,13 +256,15 @@
   </p>
 
   <p>
-    For more information on Hana please visit <a target="_blank" href="http://www.hanamaui.com" class="linked">hanamaui.com</a>
+    For more information on Hana please visit
+    <a target="_blank" href="http://www.hanamaui.com" class="linked">hanamaui.com</a>
   </p>
   <h4>Activities</h4>
   <ul class="pad">
     <li>Go hang gliding down the road (1 minute away):
       <a target="_blank" href="http://www.hangglidingmaui.com" class="linked">hangglidingmaui.com</a></li>
-    <li>Spelunking in lava tube (2 minutes away): <a target="_blank" href="http://www.mauicave.com" class="linked">mauicave.com</a>
+    <li>Spelunking in lava tube (2 minutes away):
+      <a target="_blank" href="http://www.mauicave.com" class="linked">mauicave.com</a>
     </li>
     <li>Go kayaking, snorkeling, surfing, or free diving (10 minutes away):
       <a target="_blank" href="http://www.hanabaykayaks.com" class="linked">hanabaykayaks.com</a></li>
@@ -250,7 +272,8 @@
       <a target="_blank" href="http://kipahulu.org/hike.html" class="linked">kipahulu.org/hike.html</a></li>
     <li>Ohe’o (7 Sacred Pools) and bamboo forest (45 minutes away):
       <a target="_blank" href="http://www.nps.gov/hale/index.htm" class="linked">nps.gov/hale/</a></li>
-    <li>Horse back riding (45 minutes away): <a target="_blank" href="http://www.mauistables.com" class="linked">mauistables.com</a>
+    <li>Horse back riding (45 minutes away):
+      <a target="_blank" href="http://www.mauistables.com" class="linked">mauistables.com</a>
     </li>
   </ul>
   <h4>Location</h4>

@@ -14,7 +14,7 @@ class CalendarController < ApplicationController
     end
 
     if errors.blank?
-      Calendar.refresh_available_dates if !Calendar.last || Calendar.last.refresh_date < 30.minutes.ago
+      #Calendar.refresh_available_dates if !Calendar.last || Calendar.last.refresh_date < 30.minutes.ago
       render json: Calendar.check_availability(arrival, depart), status: :ok
     else
       render json: errors.first, status: :unprocessable_entity

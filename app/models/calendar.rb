@@ -48,7 +48,9 @@ class Calendar < ActiveRecord::Base
         }.compact)
       end
     end
+  end
 
+  class Availability < Struct.new(:first, :duration, :errors)
   end
 
   private

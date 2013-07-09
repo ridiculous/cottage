@@ -73,6 +73,33 @@ header {
     z-index: 10000;
 }
 
+.box.blue {
+    background-color: #004F9D;
+    background-repeat: repeat-x;
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#54A2F0), to(#0069D0));
+    background-image: -moz-linear-gradient(#54A2F0, #0069D0);
+    background-image: -ms-linear-gradient(#54A2F0, #0069D0);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #54A2F0), color-stop(100%, #0069D0));
+    background-image: -webkit-linear-gradient(#54A2F0, #0069D0);
+    background-image: -o-linear-gradient(#54A2F0, #0069D0);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#54A2F0', endColorstr = '#0069D0', GradientType = 0);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#54A2F0', endColorstr='#0069D0', GradientType=0)";
+    background-image: linear-gradient(#54A2F0, #0069D0);
+}
+
+.box {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    padding:4px;
+}
+
+.inner-box {
+    border: 1px solid #0169CF;
+    background: #FFF;
+    background-color: #FFF;
+}
+
 #logo {
     float: left;
 }
@@ -286,12 +313,26 @@ ul.basic {
     text-align: left;
 }
 
+.ml10 {
+    margin-left: 10px;
+}
+
 .mb20 {
     margin-bottom: 20px;
 }
-
+.mar10 {
+    margin: 10px;
+}
 .pad10 {
     padding: 10px;
+}
+
+.pl10 {
+    padding-left: 10px;
+}
+
+.pr10 {
+    padding-right: 10px;
 }
 
 /* Copied from Bootstrap */
