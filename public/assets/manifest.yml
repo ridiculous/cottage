@@ -113,3 +113,5 @@ application.js: application-b05a032d8e35e5b6d20288b0f75318d1.js
 application/index.js: application-b05a032d8e35e5b6d20288b0f75318d1.js
 application.css: application-ae80d9e54a739837502c35574d6d015e.css
 application/index.css: application-ae80d9e54a739837502c35574d6d015e.css
+mobile.css: mobile-859214f83ea0e43323ff2b6a550535a0.css
+mobile/index.css: mobile-859214f83ea0e43323ff2b6a550535a0.css
