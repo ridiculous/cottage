@@ -114,4 +114,38 @@ $(function () {
     });
 
     tailorLinks();
+
+    $('#load_photos').on('click', function () {
+        var photo_request = $.get('/home/photos'), $this = $(this).hide().parent();
+        $this.append('OK! Loading ...');
+        photo_request
+            .done(function (data) {
+                $('#gallery_ph').html(data);
+                $('#myGallery').show();
+                $this.slideUp();
+            })
+            .fail(function (jqXHR, status) {
+                var msg = 'Oops, something broke...';
+                if (!jqXHR.status) {
+                    msg = 'Oops, looks like your offline';
+                }
+                $this.html(msg).show();
+            });
+
+        return false;
+    });
+
+    $('#gallery_ontainer')
+        .find('ul')
+        .galleryView({
+            panel_width: 900,
+            panel_height: 500,
+            panel_animation: 'crossfade',
+            transition_speed: 600,
+            show_captions: true,
+            autoplay: true,
+            frame_width: 150,
+            frame_height: 75
+        }); // filmstrip_position:'top'
+
 });

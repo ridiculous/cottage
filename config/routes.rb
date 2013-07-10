@@ -5,7 +5,9 @@ Cottage::Application.routes.draw do
   resources :reservations
   resources :contacts
 
-  resources :home, only: :index
+  resources :home, only: :index do
+    collection { get :photos }
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

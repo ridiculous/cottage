@@ -1,10 +1,10 @@
-<div id="front"></div>
+<%= content_tag(:div, '', id: 'front') unless mobile_device? %>
 <div class="wrapper medium">
   <h2 class="c light-gray" style="margin-top: 0;">
     Welcome to Hana's Tradewind Cottage
   </h2>
 
-  <div class="fr box blue ml10" style="width: 350px;">
+  <div class="fr box blue mar10" style="width: 350px;margin-top: 0px;">
     <div class="inner-box">
       <h4 class="mar10 c">Whats new?</h4>
 
@@ -148,21 +148,17 @@
   </ul>
 </div>
 <%= section_header('Photos') %>
-<div class="wrapper medium-minor">
-  <div style="height: 615px;">
-    <ul id="myGallery">
-      <li><%= image_tag(asset_path('slides/mountain_view.jpg'), title: 'Mountain View from Yard') %></li>
-      <li><%= image_tag(asset_path('slides/front_view.jpg'), title: 'Front of Cottage') %></li>
-      <li><%= image_tag(asset_path('slides/side_view.jpg'), title: 'Cottage from Yard') %></li>
-      <li><%= image_tag(asset_path('slides/deck_view.jpg'), title: 'Private Deck & BBQ') %></li>
-      <li><%= image_tag(asset_path('slides/private_hot_tub.jpg'), title: 'Private Hot Tub') %></li>
-      <li><%= image_tag(asset_path('slides/kitchen.jpg'), title: 'Full Kitchen') %></li>
-      <li><%= image_tag(asset_path('slides/living_dining_area.jpg'), title: 'Living / Dining Area') %></li>
-      <li><%= image_tag(asset_path('slides/master_bedroom.jpg'), title: 'Master Bedroom') %></li>
-      <li><%= image_tag(asset_path('slides/second_bedroom.jpg'), title: 'Second Bedroom') %></li>
-      <li><%= image_tag(asset_path('slides/back_yard.jpg'), title: 'View from Back Deck') %></li>
-    </ul>
-  </div>
+<div class="wrapper medium-minor" id="photos_section">
+  <% if mobile_device? %>
+      <p>
+        It looks like you're mobile, so we didn't load the pictures right away. <%= link_to('Load photos now!', 'javascript:;', class: 'linked', id: 'load_photos') %>
+      </p>
+      <div id="gallery_ph"></div>
+  <% else %>
+      <div id="gallery_ontainer" style="height: 615px;">
+        <%= render('photos') %>
+      </div>
+  <% end %>
 </div>
 <%= section_header('Contact') %>
 <div class="wrapper medium-minor">
@@ -230,7 +226,7 @@
 
     <div class="pad10">
       <p class="medium-major">
-        Phone: (808) 248-8980 <br />
+        Phone: (808) 248-8980 <br/>
         Toll Free: 1-800-327-8097
       </p>
 

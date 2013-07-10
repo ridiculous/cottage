@@ -12,4 +12,8 @@ class HomeController < ApplicationController
       @availability.errors << 'Maybe...'
     end
   end
+
+  def photos
+    render partial: 'photos'
+  end
 end
