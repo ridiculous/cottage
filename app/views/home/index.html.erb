@@ -1,10 +1,12 @@
 <%= content_tag(:div, '', id: 'front') unless mobile_device? %>
+<%= hidden_field_tag(:base_rate, base_rate) %>
+<%= hidden_field_tag(:tax_rate, tax_rate) %>
 <div class="wrapper medium">
   <h2 class="c light-gray" style="margin-top: 0;">
     Welcome to Hana's Tradewind Cottage
   </h2>
 
-  <div class="fr box blue mar10" style="width: 350px;margin-top: 0px;">
+  <div class="fr box blue mar10" style="width: 350px;margin-top: 0;">
     <div class="inner-box">
       <h4 class="mar10 c">Whats new?</h4>
 
@@ -49,11 +51,17 @@
 
   <h4>Rates</h4>
   <ul class="pad medium-minor">
+    <li>Base rate is $<%= base_rate %></li>
     <li>Nightly rate for <%= text_field_tag(:people_count, 2, class: 'instep', maxlength: 2) %> people
-      <span>+13.5% tax</span> = <span class="bold" id="rate_result">$198.63</span>
+      <span>+<%= tax_rate * 100 %>% tax</span> = <span class="bold" id="rate_result">$<%= ((tax_rate + 1) * base_rate.to_f).round(2) %></span>
     </li>
-    <li>The cottage can accommodate a <b>maximum of 4 guests.</b></li>
+    <li>The cottage can accommodate a <b>maximum of 4 guests</b>. <b>No pets.</b></li>
     <li><b>Note:</b> There is a charge of $25 per night for each additional person.</li>
+    <% if change_date >= Time.zone.now %>
+        <li>
+          <b style="color: #8A4B08;">Important:</b> Our rates are going up, as of December 15, 2013, the nightly rate will be $195.00.
+        </li>
+    <% end %>
   </ul>
 
   <h4>Availability</h4>
@@ -151,8 +159,10 @@
 <div class="wrapper medium-minor" id="photos_section">
   <% if mobile_device? %>
       <p>
-        It looks like you're mobile, so we didn't load the pictures right away. <%= link_to('Load photos now!', 'javascript:;', class: 'linked', id: 'load_photos') %>
+        It looks like you're mobile, so we didn't load the pictures right
+        away. <%= link_to('Load photos now!', 'javascript:;', class: 'linked', id: 'load_photos') %>
       </p>
+
       <div id="gallery_ph"></div>
   <% else %>
       <div id="gallery_ontainer" style="height: 615px;">

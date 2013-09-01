@@ -14,16 +14,13 @@ function tailorLinks() {
     }
 }
 $(function () {
+    var BASE_PRICE = parseFloat($('#base_rate').val()),
+        TAX_RATE = parseFloat($('#tax_rate').val());
     $('#people_count').bind('keyup', function () {
-        var count = parseInt($(this).val().replace(/[^\d+]/, '')),
-            base_price = 175,
-            tax_rate = 0.135,
-            total = 175;
-
+        var count = parseInt($(this).val().replace(/[^\d+]/, '')), base_price = BASE_PRICE;
         if (!count) count = 2;
         if (count != 1 && count != 2) base_price = base_price + ((count - 2) * 25);
-        total = base_price + (base_price * tax_rate);
-        $('#rate_result').text(accounting.formatMoney(total));
+        $('#rate_result').text(accounting.formatMoney(base_price + (base_price * TAX_RATE)));
     });
 
     $('button[data-dismiss]').bind('click', function () {
