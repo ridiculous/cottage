@@ -6,23 +6,6 @@
     Welcome to Hana's Tradewind Cottage
   </h2>
 
-  <div class="fr box blue mar10" style="width: 350px;margin-top: 0;">
-    <div class="inner-box">
-      <h4 class="mar10 c">Whats new?</h4>
-
-      <div class="pl10 pr10">
-        <p>
-          It's Summer time! We usually get avocados and mountain apples when that happens!
-        </p>
-
-        <p>
-          Upgraded our Wi-Fi service (finally). This time we went with a
-          fancy touch screen router called the <a href="http://www.securifi.com/almond" target="_blank">Almond</a>.
-          Sounds delicious ...
-        </p>
-      </div>
-    </div>
-  </div>
   <p>
     As you follow the private drive through the tropical flower garden to our
     secluded Tradewinds Cottage, you will
@@ -30,9 +13,9 @@
   </p>
 
   <p>
-    Surrounded by exotic flowers and tropical fruit trees, our two bedroom, one bath cottage has cable TV, DVD and CD
-    stereo. There is a gas cook top, refrigerator and microwave oven in the newly remodeled kitchen with a propane
-    barbeque outside on the covered deck. Wireless Internet access is available on the property.
+    Surrounded by exotic flowers and tropical fruit trees, our two bedroom, one bath cottage has <b>Wi-Fi</b>,
+    <b>cable TV</b>, <b>DVD and CD stereo</b>. There is a gas cook top, refrigerator and microwave oven in the
+    newly remodeled kitchen with a propane barbeque outside on the covered deck.
   </p>
 
   <p>
@@ -53,13 +36,15 @@
   <ul class="pad medium-minor">
     <li>Base rate is $<%= base_rate %></li>
     <li>Nightly rate for <%= text_field_tag(:people_count, 2, class: 'instep', maxlength: 2) %> people
-      <span>+<%= tax_rate * 100 %>% tax</span> = <span class="bold" id="rate_result">$<%= ((tax_rate + 1) * base_rate.to_f).round(2) %></span>
+      <span>+<%= tax_rate * 100 %>% tax</span> =
+      <span class="bold" id="rate_result">$<%= ((tax_rate + 1) * base_rate.to_f).round(2) %></span>
     </li>
     <li>The cottage can accommodate a <b>maximum of 4 guests</b>. <b>No pets.</b></li>
     <li><b>Note:</b> There is a charge of $25 per night for each additional person.</li>
     <% if change_date >= Time.zone.now %>
         <li>
-          <b style="color: #8A4B08;">Important:</b> Our rates are going up, as of December 15, 2013, the nightly rate will be $195.00.
+          <b style="color: #8A4B08;">Important:</b> Our rates are going up, as of December 15, 2013, the nightly rate
+          will be $195.00.
         </li>
     <% end %>
   </ul>

@@ -12,7 +12,7 @@ class Calendar < ActiveRecord::Base
   class << self
 
     def check_availability(arrival, depart)
-      available_dates = last.available_dates
+      available_dates = last.try(:available_dates) || []
       available = true
       arrival.upto(depart - 1.day).each do |date|
         available = false if available_dates.exclude?(date.to_s)
@@ -26,9 +26,7 @@ class Calendar < ActiveRecord::Base
 
     def refresh_available_dates
       agent = Mechanize.new do |a|
-        a.user_agent_alias = 'Mac Safari'
-        a.redirection_limit = 10
-        a.follow_meta_refresh = true
+        a.ssl_version = :TLSv1
       end
       calendar = agent.get('https://www.homeawayconnect.com/calendar.cfm?pid=51970')
       transaction do
