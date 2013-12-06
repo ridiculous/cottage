@@ -35,10 +35,7 @@
   <h4>Rates</h4>
   <ul class="pad medium-minor">
     <li>Base rate is $<%= base_rate %></li>
-    <li>Nightly rate for <%= text_field_tag(:people_count, 2, class: 'instep', maxlength: 2) %> people
-      <span>+<%= tax_rate * 100 %>% tax</span> =
-      <span class="bold" id="rate_result">$<%= ((tax_rate + 1) * base_rate.to_f).round(2) %></span>
-    </li>
+    <li>Nightly rate for <%= text_field_tag(:people_count, 2, class: 'instep', maxlength: 2) %> people <span>+<%= tax_rate * 100 %>% tax</span> = <span class="bold" id="rate_result">$<%= ((tax_rate + 1) * base_rate.to_f).round(2) %></span></li>
     <li>The cottage can accommodate a <b>maximum of 4 guests</b>. <b>No pets.</b></li>
     <li><b>Note:</b> There is a charge of $25 per night for each additional person.</li>
     <% if change_date >= Time.zone.now %>
