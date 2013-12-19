@@ -46,6 +46,10 @@ class Calendar < ActiveRecord::Base
         }.compact)
       end
     end
+
+    def outdated?
+      !last || last.refresh_date < 30.minutes.ago
+    end
   end
 
   class Availability < Struct.new(:first, :duration, :errors)

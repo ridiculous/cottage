@@ -3,7 +3,10 @@ class Inquiry < ActionMailer::Base
 
   def new_inquiry(contact)
     @contact = contact
-    mail(to: 'Brianna <brianna@tradewindscottage.net>, Ryan <arebuckley@gmail.com>', subject: 'New inquiry for the Tradewinds Cottage!')
+    @date_range = DateRange.new(@contact.arrival_date, @contact.departure_date)
+    siblings = 'Ryan <arebuckley@gmail.com>'
+    siblings << ', Brianna <brianna@tradewindscottage.net>' unless Rails.env.development?
+    mail(to: siblings, subject: 'New inquiry for the Tradewinds Cottage!')
   end
 
 end
