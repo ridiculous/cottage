@@ -1,7 +1,7 @@
 module HomeHelper
 
   def base_rate
-    Time.zone.now < change_date ? '195.00' : '175.00'
+    '195.00'
   end
 
   def tax_rate
