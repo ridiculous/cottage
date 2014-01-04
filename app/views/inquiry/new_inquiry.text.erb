@@ -9,6 +9,7 @@ Number of people: <%= @contact.number_of_people || '[n/a]' %>
 Email: <%= @contact.email || '[n/a]' %>
 Address: <%= @contact.address || '[n/a]' %>
 Phone: <%= @contact.phone || '[n/a]' %>
+Duraration: <%= "#{@date_range.diff_days} Nights" rescue 'error' %>
 Arrival Date: <%= @contact.arrival_date.try(:strftime, '%m/%d/%Y') || '[n/a]' %>
 Departure Date: <%= @contact.departure_date.try(:strftime, '%m/%d/%Y') || '[n/a]' %>
 Message: <%= @contact.message || '[n/a]' %>
