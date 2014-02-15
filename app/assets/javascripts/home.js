@@ -59,56 +59,56 @@ $(function () {
         $.scrollTo('#front', 500);
     });
 
-    // check availability
-    var $available = $('.available'), $unavailable = $('.unavailable'), $ebox = $('#error_box');
+// check availability
+//    var $available = $('.available'), $unavailable = $('.unavailable'), $ebox = $('#error_box');
 
-    $('#check_avail').bind('ajax:complete', function (evt, data, status, xhr) {
-        $ebox.removeClass('in');
-        if (status == 'success') {
-            $ebox.hide().removeClass('in');
-            if (data.responseText == 'true') {
-                $unavailable.hide();
-                $available.fadeIn(200);
-            } else {
-                $available.hide();
-                $unavailable.fadeIn(200);
-            }
-        } else {
-            $available.hide();
-            $unavailable.hide();
-            $ebox.show().addClass('in').find('.error-message').html(data.responseText);
-        }
-    });
+//    $('#check_avail').bind('ajax:complete', function (evt, data, status, xhr) {
+//        $ebox.removeClass('in');
+//        if (status == 'success') {
+//            $ebox.hide().removeClass('in');
+//            if (data.responseText == 'true') {
+//                $unavailable.hide();
+//                $available.fadeIn(200);
+//            } else {
+//                $available.hide();
+//                $unavailable.fadeIn(200);
+//            }
+//        } else {
+//            $available.hide();
+//            $unavailable.hide();
+//            $ebox.show().addClass('in').find('.error-message').html(data.responseText);
+//        }
+//    });
 
-    $('.send_inquiry').bind('click', function () {
-        $('#contact_arrival_date').val($('#arrival_date_r').val());
-        $('#contact_departure_date').val($('#departure_date_r').val());
-        $('#contact_number_of_people').val($('#people_count').val())
-    });
+//    $('.send_inquiry').bind('click', function () {
+//        $('#contact_arrival_date').val($('#arrival_date_r').val());
+//        $('#contact_departure_date').val($('#departure_date_r').val());
+//        $('#contact_number_of_people').val($('#people_count').val())
+//    });
 
-    $('#view_entire_calendar').bind('click', function () {
-        var $cal = $('#hac');
-        $(this).toggleClass('shown');
-        if ($(this).hasClass('shown')) {
-            if (!$cal.length) {
-                $cal = $(document.createElement('iframe'));
-                $cal.css({width: '100%', height: '990px'});
-                $cal.attr({
-                    id: 'hac',
-                    src: 'https://www.homeawayconnect.com/calendar.aspx?propertyid=51970&culturename=en-US&mode=1'
-                });
-                $cal.insertAfter($('#check_avail').addClass('hidden').slideUp(200));
-            } else {
-                $cal.slideDown(200);
-                $('#check_avail').slideUp(200);
-            }
-            $(this).text('hide the calendar');
-        } else {
-            $cal.slideUp(200);
-            $('#check_avail').slideDown(200);
-            $(this).text('view the calendar');
-        }
-    });
+//    $('#view_entire_calendar').bind('click', function () {
+//        var $cal = $('#hac');
+//        $(this).toggleClass('shown');
+//        if ($(this).hasClass('shown')) {
+//            if (!$cal.length) {
+//                $cal = $(document.createElement('iframe'));
+//                $cal.css({width: '100%', height: '990px'});
+//                $cal.attr({
+//                    id: 'hac',
+//                    src: 'https://www.homeawayconnect.com/calendar.aspx?propertyid=51970&culturename=en-US&mode=1'
+//                });
+//                $cal.insertAfter($('#check_avail').addClass('hidden').slideUp(200));
+//            } else {
+//                $cal.slideDown(200);
+//                $('#check_avail').slideUp(200);
+//            }
+//            $(this).text('hide the calendar');
+//        } else {
+//            $cal.slideUp(200);
+//            $('#check_avail').slideDown(200);
+//            $(this).text('view the calendar');
+//        }
+//    });
 
     tailorLinks();
 
