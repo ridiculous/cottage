@@ -50,4 +50,8 @@ class DateRange
     Calendar.check_availability(start_at, end_at)
   end
 
+  def diff_days
+    (end_at - start_at).to_i
+  end
+
 end

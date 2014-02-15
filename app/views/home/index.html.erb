@@ -38,12 +38,6 @@
     <li>Nightly rate for <%= text_field_tag(:people_count, 2, class: 'instep', maxlength: 2) %> people <span>+<%= tax_rate * 100 %>% tax</span> = <span class="bold" id="rate_result">$<%= ((tax_rate + 1) * base_rate.to_f).round(2) %></span></li>
     <li>The cottage can accommodate a <b>maximum of 4 guests</b>. <b>No pets.</b></li>
     <li><b>Note:</b> There is a charge of $25 per night for each additional person.</li>
-    <% if change_date >= Time.zone.now %>
-        <li>
-          <b style="color: #8A4B08;">Important:</b> Our rates are going up, as of December 15, 2013, the nightly rate
-          will be $195.00.
-        </li>
-    <% end %>
   </ul>
 
   <h4>Availability</h4>
