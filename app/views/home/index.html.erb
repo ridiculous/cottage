@@ -42,42 +42,7 @@
 
   <h4>Availability</h4>
 
-  <p class="medium">
-    Our next opening is <span class="green"><%= @availability.first.to_formatted_s(:long) %></span>
-    for <%= pluralize(@availability.duration, 'night') %>. <%= @availability.errors.try(:pop) %>
-  </p>
-
-  <p class="medium">
-    Check availability for your trip by entering your arrival and departure date below. Optionally, you can
-    <a href="javascript:;" id="view_entire_calendar" class="linked">view the calendar</a>.
-  </p>
-
-  <div id="error_box" class="alert alert-block alert-error fade" style="display: none;">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <p class="error-message" style="margin: 3px;"></p>
-  </div>
-  <%= form_tag(calendar_create_path, remote: true, id: 'check_avail') do %>
-      <table class="basic w600" style="padding-left: 40px;">
-        <tr>
-          <td style="width: 120px"><label for="arrival_date_r">Arrival date</label></td>
-          <td style="width: 405px"><%= text_field_tag(:arrival_date, @availability.first.strftime('%m/%d/%Y'), placeholder: 'Arrival date', id: 'arrival_date_r', class: 'dp') %></td>
-        </tr>
-        <tr>
-          <td><label for="departure_date_r">Departure date</label></td>
-          <td><%= text_field_tag(:departure_date, (@availability.first + 2.days).strftime('%m/%d/%Y'), placeholder: 'Departure date', id: 'departure_date_r', class: 'dp') %></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>
-            <%= submit_tag('Check Availability', disable_with: 'Checking ...') %>
-            <span class="available">Available! <a href="#contact" class="send_inquiry linked">Submit an
-              inquiry</a></span>
-            <span class="unavailable">Unavailable.<i style="color:#666"> Try our sister site
-              <a href="http://hanamaui.net" class="linked">hanamaui.net</a></i></span>
-          </td>
-        </tr>
-      </table>
-  <% end %>
+  <div>Find <a id="flipkey_availability" href="http://www.flipkey.com/hana-vacation-rentals/g60630/">Hana Vacation Rentals</a> on FlipKey</div><script type="text/javascript" src="http://data.flipkey.com/widgets/jsapi/62343/31832/333099/"></script>
 
   <h4>Reservation Policies</h4>
 
@@ -158,7 +123,7 @@
     </div>
     <div id="form_error_box" class="alert alert-block alert-error fade" style="display: none;">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <h4 class="alert-heading">Something is not right!</h4>
+      <h4 class="alert-heading">Oops!</h4>
 
       <p class="error-message"></p>
     </div>

@@ -8,10 +8,6 @@ module HomeHelper
     0.135
   end
 
-  def change_date
-    Time.zone.parse('December 15, 2013')
-  end
-
   def section_header(title)
     section_name = title.underscore.downcase
     content_tag(:div, class: 'section-wrap') do
