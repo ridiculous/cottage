@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def mobile_device?
-    params[:m] || request.user_agent =~ /Mobile|webOS/
+    params[:m] == '1' || request.user_agent =~ /Mobile|webOS/
   end
 
 end

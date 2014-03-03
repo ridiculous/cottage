@@ -25,3 +25,7 @@ body .w49 {
 body .wrapper ul#myGallery {
     padding-left: 0;
 }
+
+body .hidden-mobile {
+    display: none !important;
+}

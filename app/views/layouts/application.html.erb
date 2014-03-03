@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hana's Tradewind Cottage</title>
   <%= stylesheet_link_tag('application', media: 'all') %>
   <%= stylesheet_link_tag('mobile') if mobile_device? %>
@@ -31,27 +33,29 @@
   </script>
 </head>
 <body>
-<header id="nav_bar">
-  <div class="wrapper nav">
-    <div id="logo" class="deep-text">
-      <h1>Hana's Tradewind Cottage</h1>
+<div class="row">
+  <header id="nav_bar">
+    <div class="wrapper nav">
+      <div id="logo" class="deep-text">
+        <h1><span class="hidden-mobile">Hana's</span> Tradewind Cottage</h1>
+      </div>
+      <ul id="page_nav">
+        <li>
+          <a href="#reservations">Reservations</a>
+        </li>
+        <li>
+          <a href="#photos">Photos</a>
+        </li>
+        <li>
+          <a href="#contact">Contact</a>
+        </li>
+        <li>
+          <a href="#hana">Hana</a>
+        </li>
+      </ul>
     </div>
-    <ul id="page_nav">
-      <li>
-        <a href="#reservations">Reservations</a>
-      </li>
-      <li>
-        <a href="#photos">Photos</a>
-      </li>
-      <li>
-        <a href="#contact">Contact</a>
-      </li>
-      <li>
-        <a href="#hana">Hana</a>
-      </li>
-    </ul>
-  </div>
-</header>
+  </header>
+</div>
 
 <div id="container">
   <div id="content">

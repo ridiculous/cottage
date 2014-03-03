@@ -1,7 +1,5 @@
 Cottage::Application.routes.draw do
 
-  post "calendar/create"
-
   resources :reservations
   resources :contacts
 

@@ -16,6 +16,7 @@ function tailorLinks() {
 $(function () {
     var BASE_PRICE = parseFloat($('#base_rate').val()),
         TAX_RATE = parseFloat($('#tax_rate').val());
+
     $('#people_count').bind('keyup', function () {
         var count = parseInt($(this).val().replace(/[^\d+]/, '')), base_price = BASE_PRICE;
         if (!count) count = 2;

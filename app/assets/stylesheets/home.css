@@ -25,9 +25,12 @@ li {
     margin-right: auto;
 }
 
+.row {
+    width: 100%;
+}
+
 header {
     font-family: "Georgia", "Times New Roman", Helvetica, Arial, sans-serif;
-    min-width: 750px;
     background-color: #004F9D;
     background-repeat: repeat-x;
     background-image: -khtml-gradient(linear, left top, left bottom, from(#0069D0), to(#004F9D));
