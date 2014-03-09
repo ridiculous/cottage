@@ -35,14 +35,20 @@
   <h4>Rates</h4>
   <ul class="pad medium-minor">
     <li>Base rate is $<%= base_rate %></li>
-    <li>Nightly rate for <%= text_field_tag(:people_count, 2, class: 'instep', maxlength: 2) %> people <span>+<%= tax_rate * 100 %>% tax</span> = <span class="bold" id="rate_result">$<%= ((tax_rate + 1) * base_rate.to_f).round(2) %></span></li>
+    <li>Nightly rate for <%= text_field_tag(:people_count, 2, class: 'instep', maxlength: 2) %> people
+      <span>+<%= tax_rate * 100 %>% tax</span> =
+      <span class="bold" id="rate_result">$<%= ((tax_rate + 1) * base_rate.to_f).round(2) %></span></li>
     <li>The cottage can accommodate a <b>maximum of 4 guests</b>. <b>No pets.</b></li>
     <li><b>Note:</b> There is a charge of $25 per night for each additional person.</li>
   </ul>
 
   <h4>Availability</h4>
 
-  <div>Find <a id="flipkey_availability" href="http://www.flipkey.com/hana-vacation-rentals/g60630/">Hana Vacation Rentals</a> on FlipKey</div><script type="text/javascript" src="http://data.flipkey.com/widgets/jsapi/62343/31832/333099/"></script>
+  <div>Find
+    <a id="flipkey_availability" href="http://www.flipkey.com/hana-vacation-rentals/g60630/">Hana Vacation Rentals</a>
+    on FlipKey
+  </div>
+  <script type="text/javascript" src="http://data.flipkey.com/widgets/jsapi/62343/31832/333099/"></script>
 
   <h4>Reservation Policies</h4>
 
@@ -127,51 +133,8 @@
 
       <p class="error-message"></p>
     </div>
-    <div class="pad10">
-      <%= form_for(@contact, remote: true, id: 'contact_form') do |f| %>
-          <table class="basic w500">
-            <tr>
-              <td><%= f.label(:name) %></td>
-              <td><%= f.text_field(:name, placeholder: 'Name') %></td>
-            </tr>
-            <tr>
-              <td><%= f.label(:number_of_people) %></td>
-              <td><%= f.text_field(:number_of_people, placeholder: 'Number of people') %></td>
-            </tr>
-            <tr>
-              <td><%= f.label(:email) %></td>
-              <td><%= f.text_field(:email, placeholder: 'Email') %></td>
-            </tr>
-            <tr>
-              <td><%= f.label(:address) %></td>
-              <td><%= f.text_field(:address, placeholder: 'Address') %></td>
-            </tr>
-            <tr>
-              <td><%= f.label(:phone) %></td>
-              <td><%= f.text_field(:phone, placeholder: 'Phone') %></td>
-            </tr>
-            <tr>
-              <td><%= f.label(:arrival_date) %></td>
-              <td><%= f.text_field(:arrival_date, placeholder: 'Arrival date', class: 'dp') %></td>
-            </tr>
-            <tr>
-              <td><%= f.label(:departure_date) %></td>
-              <td><%= f.text_field(:departure_date, placeholder: 'Departure date', class: 'dp') %></td>
-            </tr>
-            <tr>
-              <td><%= f.label(:message) %></td>
-              <td>
-                <div>
-                  <%= f.text_area(:message, rows: 2, placeholder: 'Write a message (optional)') %>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>&nbsp;</td>
-              <td><%= f.submit('Submit Inquiry', disable_with: 'Submitting ..') %></td>
-            </tr>
-          </table>
-      <% end %>
+    <div class="pad10 no-pad-mobile">
+      <%= render('contact/form') %>
     </div>
   </div>
   <div class="fr w49">

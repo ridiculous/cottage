@@ -40,3 +40,7 @@ body ul {
     padding-left: 5px;
     margin-left: 0;
 }
+
+body .no-pad-mobile {
+    padding: 0 !important;
+}

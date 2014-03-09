@@ -1,0 +1,44 @@
+<%= form_for(@contact, remote: true, id: 'contact_form') do |f| %>
+    <table class="basic w500">
+      <tr>
+        <td><%= f.label(:name) %></td>
+        <td><%= f.text_field(:name, placeholder: 'Name') %></td>
+      </tr>
+      <tr>
+        <td><%= f.label(:number_of_people) %></td>
+        <td><%= f.text_field(:number_of_people, placeholder: 'Number of people') %></td>
+      </tr>
+      <tr>
+        <td><%= f.label(:email) %></td>
+        <td><%= f.text_field(:email, placeholder: 'Email') %></td>
+      </tr>
+      <tr>
+        <td><%= f.label(:address) %></td>
+        <td><%= f.text_field(:address, placeholder: 'Address') %></td>
+      </tr>
+      <tr>
+        <td><%= f.label(:phone) %></td>
+        <td><%= f.text_field(:phone, placeholder: 'Phone') %></td>
+      </tr>
+      <tr>
+        <td><%= f.label(:arrival_date) %></td>
+        <td><%= f.text_field(:arrival_date, placeholder: 'Arrival date', class: 'dp') %></td>
+      </tr>
+      <tr>
+        <td><%= f.label(:departure_date) %></td>
+        <td><%= f.text_field(:departure_date, placeholder: 'Departure date', class: 'dp') %></td>
+      </tr>
+      <tr>
+        <td><%= f.label(:message) %></td>
+        <td>
+          <div>
+            <%= f.text_area(:message, rows: 2, placeholder: 'Write a message (optional)') %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><%= f.submit('Submit Inquiry', disable_with: 'Submitting ..') %></td>
+      </tr>
+    </table>
+<% end %>
