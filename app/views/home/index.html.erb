@@ -160,7 +160,11 @@
             </tr>
             <tr>
               <td><%= f.label(:message) %></td>
-              <td><%= f.text_area(:message, placeholder: 'Write a message (optional)') %></td>
+              <td>
+                <div>
+                  <%= f.text_area(:message, rows: 2, placeholder: 'Write a message (optional)') %>
+                </div>
+              </td>
             </tr>
             <tr>
               <td>&nbsp;</td>
