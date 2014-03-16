@@ -46,8 +46,8 @@
   <h4>Availability</h4>
 
   <p class="medium">
-    Our next opening is <span class="green"><%= @availability.first.to_formatted_s(:long) %></span>
-    for <%= pluralize(@availability.duration, 'night') %>. <%= @availability.errors.try(:pop) %>
+    Our next opening is <span class="green"><%= @availability.start_at.to_formatted_s(:long) %></span>
+    for <%= pluralize(@availability.duration, 'night') %>. <%= @availability.error %>
   </p>
 
   <p class="medium">
@@ -64,11 +64,11 @@
         <table class="basic w600">
           <tr>
             <td style="width: 120px"><label for="arrival_date_r">Arrival date</label></td>
-            <td><%= text_field_tag(:arrival_date, @availability.first.strftime('%m/%d/%Y'), placeholder: 'Arrival date', id: 'arrival_date_r', class: 'dp') %></td>
+            <td><%= text_field_tag(:arrival_date, @availability.start_at.strftime('%m/%d/%Y'), placeholder: 'Arrival date', id: 'arrival_date_r', class: 'dp') %></td>
           </tr>
           <tr>
             <td><label for="departure_date_r">Departure date</label></td>
-            <td><%= text_field_tag(:departure_date, (@availability.first + 2.days).strftime('%m/%d/%Y'), placeholder: 'Departure date', id: 'departure_date_r', class: 'dp') %></td>
+            <td><%= text_field_tag(:departure_date, (@availability.start_at + 2.days).strftime('%m/%d/%Y'), placeholder: 'Departure date', id: 'departure_date_r', class: 'dp') %></td>
           </tr>
           <tr>
             <td></td>
