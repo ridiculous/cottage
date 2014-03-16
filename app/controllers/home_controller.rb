@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   def index
     @contact = Contact.new
     dates = Calendar.latest.try(:available_dates)
-    @availability = CalendarAvailability.new(dates)
+    @availability = VRBO::Availability.new(dates)
   end
 
   def photos
