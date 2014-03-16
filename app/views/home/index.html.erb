@@ -24,6 +24,7 @@
     barbeque under your covered lanai.
   </p>
 </div>
+
 <%= section_header('Reservations') %>
 
 <div class="wrapper medium-minor mb20">
@@ -44,11 +45,50 @@
 
   <h4>Availability</h4>
 
-  <div>Find
-    <a id="flipkey_availability" href="http://www.flipkey.com/hana-vacation-rentals/g60630/">Hana Vacation Rentals</a>
-    on FlipKey
+  <p class="medium">
+    Our next opening is <span class="green"><%= @availability.first.to_formatted_s(:long) %></span>
+    for <%= pluralize(@availability.duration, 'night') %>. <%= @availability.errors.try(:pop) %>
+  </p>
+
+  <p class="medium">
+    Check availability for your trip by entering your arrival and departure date below. Optionally, you can
+    <a href="javascript:;" id="view_entire_calendar" class="linked">view the calendar</a>.
+  </p>
+
+  <div id="error_box" class="alert alert-block alert-error fade" style="display: none;">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <p class="error-message" style="margin: 3px;"></p>
   </div>
-  <script type="text/javascript" src="http://data.flipkey.com/widgets/jsapi/62343/31832/333099/"></script>
+  <div class="pl20 no-pad-mobile">
+    <%= form_tag(calendar_create_path, remote: true, id: 'check_avail') do %>
+        <table class="basic w600">
+          <tr>
+            <td style="width: 120px"><label for="arrival_date_r">Arrival date</label></td>
+            <td><%= text_field_tag(:arrival_date, @availability.first.strftime('%m/%d/%Y'), placeholder: 'Arrival date', id: 'arrival_date_r', class: 'dp') %></td>
+          </tr>
+          <tr>
+            <td><label for="departure_date_r">Departure date</label></td>
+            <td><%= text_field_tag(:departure_date, (@availability.first + 2.days).strftime('%m/%d/%Y'), placeholder: 'Departure date', id: 'departure_date_r', class: 'dp') %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <div class="fl">
+                <%= submit_tag('Check Availability', disable_with: 'Checking ...') %>
+              </div>
+              <div class="fl pt4">
+                <span class="available">Available! <a href="#contact" class="send_inquiry linked">Submit an
+                  inquiry</a></span>
+            <span class="unavailable">Unavailable.<i style="color:#666"> Try our sister site
+              <a href="http://hanamaui.net" class="linked">hanamaui.net</a></i></span>
+              </div>
+              <div style="clear:both"></div>
+            </td>
+          </tr>
+        </table>
+    <% end %>
+  </div>
+  <div id="iframe_ph"></div>
 
   <h4>Reservation Policies</h4>
 
@@ -160,13 +200,30 @@
 <%= section_header('Hana') %>
 <div class="wrapper medium-minor">
   <p class="medium">
-    Hana is a small town located on the east side of Maui. It is home to some of the world’s most beautiful beaches,
+    Hana is a small town located on the <b>east side of Maui</b>. It is home to some of the
+    <a href="http://xfinity.comcast.net/slideshow/news-bestbeaches/7/" target="_blank" class="linked">
+      world’s most beautiful beaches</a>,
     breath taking waterfalls, and majestic coastlines. From Kahului airport it is about a 50 mile drive along the
-    winding coastline. Along the way you can enjoy hiking trails, beautiful overlooks, and incredible waterfalls. The
-    actual town of Hana is very small, consisting on two convenience stores, the Travaasa Hotel, Hana Ranch Restaurant,
-    Post office, and a gas station. There are a variety of outdoor activities, some of which we’ve listed below. It is
-    nice to have a couple of days to spend in Hana because it is a long trip out here. That way you have some time to
-    just relax and explore this side of the island.
+    winding coastline. Along the way you can enjoy hiking trails, beautiful overlooks, and incredible waterfalls.
+  </p>
+
+  <p>
+    Hana town is limited when it comes to night life and dining options. There is one gas station and two small
+    stores (<b>closes at 7:30 PM</b>). If you are staying for several nights, we recommend buying groceries in Kahului
+    before driving to Hana. Travaasa Hotel has a bar and restaurant, although it is a bit pricey, and so does
+    the Hana Ranch Restaurant (also pricey). There are a several locally owned eateries and lunch
+    wagons around town. A local favorite is
+    <a href="http://www.yelp.com/biz/thai-food-by-pranee-hana" target="_blank" class="linked" title="view Pranee's on Yelp">Pranee's</a>,
+    which has excellent Thai food. Checkout
+    <a href="http://www.yelp.com/search?find_desc=&find_loc=H%C4%81na%2C+HI&ns=1&ls=2b7c66da1def68e9" target="_blank" class="linked">Hana
+      on Yelp</a>
+    for a list of popular activities and food options.
+  </p>
+
+  <p>
+    There are a variety of outdoor activities, some of which we’ve listed below. It is nice to have a couple of days to
+    spend in Hana because it is a long trip out here. That way you have some time to just relax and explore this side of
+    the island.
   </p>
 
   <p>
@@ -194,7 +251,7 @@
 
   <p>The map below shows the route from the Kahului Airport (OGG) to the Tradewind Cottage (Approximately 52 miles).</p>
   <% unless Rails.env.development? %>
-      <iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=d&amp;source=s_d&amp;saddr=OGG,+Kahului,+HI&amp;daddr=143+Alalele+Road,+Hana,+HI&amp;hl=en&amp;geocode=FXDPPgEdffKs9iFBkBrdYqlewykZBI4bsNJUeTFBkBrdYqleww%3BFf0nPQEdw12z9inhwr1do61UeTE8DGQ9X2wytA&amp;aq=0&amp;oq=ogg&amp;sll=20.785149,-156.017213&amp;sspn=0.010472,0.016544&amp;g=143+Alalele+Road,+Hana,+HI&amp;mra=ls&amp;ie=UTF8&amp;ll=20.86007,-156.230615&amp;spn=0.15616,0.42713&amp;t=m&amp;output=embed"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m29!1m12!1m3!1d238610.7238657256!2d-156.3722470141209!3d20.860254975716938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m14!1i0!3e6!4m5!1s0x7954d2b01b8e0419%3A0xc35ea962dd1a9041!2sKahului+Airport%2C+1+Kahului+Airport+Rd%2C+Kahului%2C+HI+96732!3m2!1d20.896791999999998!2d-156.43293799999998!4m5!1s0x7954ada37cc29da1%3A0xb9089f2ff788b1df!2sHana&#39;s+Tradewind+Cottages%2C+135+Alalele+Rd%2C+Hana%2C+HI+96713!3m2!1d20.790406!2d-156.01775899999998!5e0!3m2!1sen!2sus!4v1394938868443" width="100%" height="450" frameborder="0" style="border:0"></iframe>
   <% end %>
 
 </div>

@@ -330,12 +330,20 @@ ul.basic {
     margin: 10px;
 }
 
+.pt4 {
+    padding-top: 4px;
+}
+
 .pad10 {
     padding: 10px;
 }
 
 .pl10 {
     padding-left: 10px;
+}
+
+.pl20 {
+    padding-left: 20px;
 }
 
 .pr10 {

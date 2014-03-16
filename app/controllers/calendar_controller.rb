@@ -9,6 +9,7 @@ class CalendarController < ApplicationController
     else
       render json: date_range.errors.first, status: :unprocessable_entity
     end
+
   rescue
     render json: 'Oops! Something went wrong', status: :internal_server_error
   end
