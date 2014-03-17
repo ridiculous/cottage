@@ -88,6 +88,7 @@
         </table>
     <% end %>
   </div>
+  <%= hidden_field_tag(:vrbo_calendar_url, VRBO::Calendar.url) %>
   <div id="iframe_ph"></div>
 
   <h4>Reservation Policies</h4>

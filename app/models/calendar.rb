@@ -9,7 +9,7 @@ class Calendar < ActiveRecord::Base
     end
 
     def refresh_available_dates
-      create(available_dates: VRBO::Calendar.find_all_available_dates)
+      create(available_dates: VRBO::Calendar.find_available_dates)
     end
 
     def outdated?

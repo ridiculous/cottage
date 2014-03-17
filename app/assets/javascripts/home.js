@@ -60,7 +60,8 @@
             $(this).toggleClass('shown');
             if ($(this).hasClass('shown')) {
                 if (!$cal.length) {
-                    document.getElementById('iframe_ph').innerHTML = '<iframe id="vrbo_iframe" width="600" height="1040" frameborder="0" scrolling="0" allowtransparency="true" src="http://www.vrbo.com/293021/calendar"></iframe>';
+                    var src = document.getElementById('vrbo_calendar_url').value;
+                    document.getElementById('iframe_ph').innerHTML = '<iframe id="vrbo_iframe" width="600" height="1040" frameborder="0" scrolling="0" allowtransparency="true" src="' + src + '"></iframe>';
                     $('#check_avail').addClass('hidden').slideUp(200);
                 } else {
                     $cal.slideDown(200);
