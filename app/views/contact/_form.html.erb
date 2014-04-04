@@ -1,4 +1,5 @@
 <%= form_for(@contact, remote: true, id: 'contact_form') do |f| %>
+    <%= f.hidden_field(:device, value: mobile_device? ? 'mobile device' : 'desktop') %>
     <table class="basic w500">
       <tr>
         <td><%= f.label(:name) %></td>

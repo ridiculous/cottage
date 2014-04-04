@@ -5,7 +5,6 @@ class ContactsController < ApplicationController
   end
 
   def create
-    contact_params = params[:contact]
     @contact = Contact.new(contact_params)
     @contact.departure_date = DateRange.convert(contact_params[:departure_date])
     @contact.arrival_date = DateRange.convert(contact_params[:arrival_date])
@@ -16,6 +15,12 @@ class ContactsController < ApplicationController
     else
       render json: @contact.errors, status: :unprocessable_entity
     end
+  end
+
+  protected
+
+  def contact_params
+    @_contact_params ||= params.require(:contact).permit!
   end
 
 end

@@ -4,7 +4,9 @@ class CalendarController < ApplicationController
     date_range.to_date!
 
     if date_range.valid?
-      Calendar.refresh_available_dates if Calendar.outdated?
+      if Calendar.outdated?
+        Calendar.create(available_dates: VRBO::Calendar.find_available_dates)
+      end
       render json: date_range.open?, status: :ok
     else
       render json: date_range.errors.first, status: :unprocessable_entity

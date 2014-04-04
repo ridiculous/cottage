@@ -1,6 +1,6 @@
 Hey Bri,
 
-You got a new reservation inquiry from the website!
+You got a new reservation inquiry from the tradewindscottage.net!
 
 Reservation info:
 
@@ -12,6 +12,11 @@ Phone: <%= @contact.phone || '[n/a]' %>
 Duraration: <%= pluralize(@date_range.diff_days, "Night") rescue 'error' %>
 Arrival Date: <%= @contact.arrival_date.try(:strftime, '%m/%d/%Y') || '[n/a]' %>
 Departure Date: <%= @contact.departure_date.try(:strftime, '%m/%d/%Y') || '[n/a]' %>
-Message: <%= @contact.message || '[n/a]' %>
+Message:
+  <%= @contact.message_for_email %>
 
 System says requested dates are <%= 'NOT ' unless @date_range.open? %>AVAILABLE.
+
+This inquiry was sent from a <%= @contact.device %>.
+
+Have a great day!
