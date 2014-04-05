@@ -1,6 +1,7 @@
 <%= content_tag(:div, '', id: 'front') unless mobile_device? %>
 <%= hidden_field_tag(:base_rate, base_rate) %>
 <%= hidden_field_tag(:tax_rate, tax_rate) %>
+<%= hidden_field_tag(:main_pic_url, asset_path('front-main.jpg')) %>
 <div class="wrapper medium">
   <h2 class="c light-gray" style="margin-top: 0;">
     Welcome to Hana's Tradewind Cottage

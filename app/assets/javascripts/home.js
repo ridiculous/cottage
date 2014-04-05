@@ -162,8 +162,9 @@
         initLazyPhotos();
         initFriendlyLinks();
         initPhotoGallery();
+        var main_pic_url = document.getElementById('main_pic_url').value;
 
-        $('#front').css('background-image', "url('assets/front-main.jpg')").show();
+        $('#front').css('background-image', "url('" + main_pic_url + "')").show();
         $('.dp').datepicker();
         $('#page_nav li a, .send_inquiry').bind('click', function () {
             $.scrollTo($(this).attr('href'), 500);
