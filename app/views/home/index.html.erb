@@ -3,257 +3,257 @@
 <%= hidden_field_tag(:tax_rate, tax_rate) %>
 <%= hidden_field_tag(:main_pic_url, asset_path('front-main.jpg')) %>
 <div class="wrapper medium">
-  <h2 class="c light-gray" style="margin-top: 0;">
-    Welcome to Hana's Tradewind Cottage
-  </h2>
+	<h2 class="c light-gray" style="margin-top: 0;">
+		Welcome to Hana's Tradewind Cottage
+	</h2>
 
-  <p>
-    As you follow the private drive through the tropical flower garden to our
-    secluded Tradewinds Cottage, you will
-    discover the Hawaii that you came to see.
-  </p>
+	<p>
+		As you follow the private drive through the tropical flower garden to our
+		secluded Tradewinds Cottage, you will
+		discover the Hawaii that you came to see.
+	</p>
 
-  <p>
-    Surrounded by exotic flowers and tropical fruit trees, our two bedroom, one bath cottage has <b>Wi-Fi</b>,
-    <b>cable TV</b>, <b>DVD and CD stereo</b>. There is a gas cook top, refrigerator and microwave oven in the
-    newly remodeled kitchen with a propane barbeque outside on the covered deck.
-  </p>
+	<p>
+		Surrounded by exotic flowers and tropical fruit trees, our two bedroom, one bath cottage has <b>Wi-Fi</b>,
+		<b>cable TV</b>, <b>DVD and CD stereo</b>. There is a gas cook top, refrigerator and microwave oven in the
+		newly remodeled kitchen with a propane barbeque outside on the covered deck.
+	</p>
 
-  <p>
-    The cottage has a queen size bed, two twin beds and a queen size sleeper sofa. You'll enjoy the splendor of the
-    slopes of Haleakala while relaxing in your private hot tub or cooking your favorite island-style feast on the
-    barbeque under your covered lanai.
-  </p>
+	<p>
+		The cottage has a queen size bed, two twin beds and a queen size sleeper sofa. You'll enjoy the splendor of the
+		slopes of Haleakala while relaxing in your private hot tub or cooking your favorite island-style feast on the
+		barbeque under your covered lanai.
+	</p>
 </div>
 
 <%= section_header('Reservations') %>
 
 <div class="wrapper medium-minor mb20">
-  <p class="medium">
-    Planning a trip to the east side of Maui? Be sure to book your stay with us as early as possible.
-    We are usually booked months in advance.
-  </p>
+	<p class="medium">
+		Planning a trip to the east side of Maui? Be sure to book your stay with us as early as possible.
+		We are usually booked months in advance.
+	</p>
 
-  <h4>Rates</h4>
-  <ul class="pad medium-minor">
-    <li>Base rate is $<%= base_rate %></li>
-    <li>Nightly rate for <%= text_field_tag(:people_count, 2, class: 'instep', maxlength: 2) %> people
-      <span>+<%= tax_rate * 100 %>% tax</span> =
-      <span class="bold" id="rate_result">$<%= ((tax_rate + 1) * base_rate.to_f).round(2) %></span></li>
-    <li>The cottage can accommodate a <b>maximum of 4 guests</b>. <b>No pets.</b></li>
-    <li><b>Note:</b> There is a charge of $25 per night for each additional person.</li>
-  </ul>
+	<h4>Rates</h4>
+	<ul class="pad medium-minor">
+		<li>Base rate is $<%= base_rate %></li>
+		<li>Nightly rate for <%= text_field_tag(:people_count, 2, class: 'instep', maxlength: 2) %> people
+			<span>+<%= tax_rate * 100 %>% tax</span> =
+			<span class="bold" id="rate_result">$<%= ((tax_rate + 1) * base_rate.to_f).round(2) %></span></li>
+		<li>The cottage can accommodate a <b>maximum of 4 guests</b>. <b>No pets.</b></li>
+		<li><b>Note:</b> There is a charge of $25 per night for each additional person.</li>
+	</ul>
 
-  <h4>Availability</h4>
+	<h4>Availability</h4>
 
-  <p class="medium">
-    Our next opening is <span class="green"><%= @availability.start_at.to_formatted_s(:long) %></span>
-    for <%= pluralize(@availability.duration, 'night') %>. <%= @availability.error %>
-  </p>
+	<p class="medium">
+		Our next opening is <span class="green"><%= @availability.start_at.to_formatted_s(:long) %></span>
+		for <%= pluralize(@availability.duration, 'night') %>. <%= @availability.error %>
+	</p>
 
-  <p class="medium">
-    Check availability for your trip by entering your arrival and departure date below. Optionally, you can
-    <a href="javascript:;" id="view_entire_calendar" class="linked">view the calendar</a>.
-  </p>
+	<p class="medium">
+		Check availability for your trip by entering your arrival and departure date below. Optionally, you can
+		<a href="javascript:;" id="view_entire_calendar" class="linked">view the calendar</a>.
+	</p>
 
-  <div id="error_box" class="alert alert-block alert-error fade" style="display: none;">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <p class="error-message" style="margin: 3px;"></p>
-  </div>
-  <div class="pl20 no-pad-mobile">
-    <%= form_tag(calendar_create_path, remote: true, id: 'check_avail') do %>
-        <table class="basic w600">
-          <tr>
-            <td style="width: 120px"><label for="arrival_date_r">Arrival date</label></td>
-            <td><%= text_field_tag(:arrival_date, @availability.start_at.strftime('%m/%d/%Y'), placeholder: 'Arrival date', id: 'arrival_date_r', class: 'dp') %></td>
-          </tr>
-          <tr>
-            <td><label for="departure_date_r">Departure date</label></td>
-            <td><%= text_field_tag(:departure_date, (@availability.start_at + 2.days).strftime('%m/%d/%Y'), placeholder: 'Departure date', id: 'departure_date_r', class: 'dp') %></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <div class="fl">
-                <%= submit_tag('Check Availability', disable_with: 'Checking ...') %>
-              </div>
-              <div class="fl pt4">
+	<div id="error_box" class="alert alert-block alert-error fade" style="display: none;">
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
+		<p class="error-message" style="margin: 3px;"></p>
+	</div>
+	<div class="pl20 no-pad-mobile">
+		<%= form_tag(calendar_create_path, remote: true, id: 'check_avail') do %>
+			<table class="basic w600">
+				<tr>
+					<td style="width: 120px"><label for="arrival_date_r">Arrival date</label></td>
+					<td><%= text_field_tag(:arrival_date, @availability.start_at.strftime('%m/%d/%Y'), placeholder: 'Arrival date', id: 'arrival_date_r', class: 'dp') %></td>
+				</tr>
+				<tr>
+					<td><label for="departure_date_r">Departure date</label></td>
+					<td><%= text_field_tag(:departure_date, (@availability.start_at + 2.days).strftime('%m/%d/%Y'), placeholder: 'Departure date', id: 'departure_date_r', class: 'dp') %></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<div class="fl">
+							<%= submit_tag('Check Availability', disable_with: 'Checking ...') %>
+						</div>
+						<div class="fl pt4">
                 <span class="available">Available! <a href="#contact" class="send_inquiry linked">Submit an
-                  inquiry</a></span>
+									inquiry</a></span>
             <span class="unavailable">Unavailable.<i style="color:#666"> Try our sister site
-              <a href="http://hanamaui.net" class="linked">hanamaui.net</a></i></span>
-              </div>
-              <div style="clear:both"></div>
-            </td>
-          </tr>
-        </table>
-    <% end %>
-  </div>
-  <%= hidden_field_tag(:vrbo_calendar_url, VRBO::Calendar.url) %>
-  <div id="iframe_ph"></div>
+							<a href="http://hanamaui.net" class="linked">hanamaui.net</a></i></span>
+						</div>
+						<div style="clear:both"></div>
+					</td>
+				</tr>
+			</table>
+		<% end %>
+	</div>
+	<%= hidden_field_tag(:vrbo_calendar_url, VRBO::Calendar.url) %>
+	<div id="iframe_ph"></div>
 
-  <h4>Reservation Policies</h4>
+	<h4>Reservation Policies</h4>
 
-  <ul class="pad medium-minor">
-    <li>
-      <b>Minimum stay:</b> We have a two night minimum stay for all reservations made more than a week in advance,
-      except when there is an open night “sandwiched” between two existing reservations. We are happy to accept one
-      night stays 7 days in advance. There will be a $25 cleaning fee for a one night reservation for two people and
-      a $35 cleaning fee for three or four people who stay for only one night.
-    </li>
+	<ul class="pad medium-minor">
+		<li>
+			<b>Minimum stay:</b> We have a two night minimum stay for all reservations made more than a week in advance,
+			except when there is an open night “sandwiched” between two existing reservations. We are happy to accept one
+			night stays 7 days in advance. There will be a $25 cleaning fee for a one night reservation for two people
+			and
+			a $35 cleaning fee for three or four people who stay for only one night.
+		</li>
 
-    <li>
-      <b>Deposits:</b> A 25% deposit is required to reserve the cottage and the balance is due 30 days in advance.
-    </li>
+		<li>
+			<b>Deposits:</b> A 25% deposit is required to reserve the cottage and the balance is due 30 days in advance.
+		</li>
 
-    <li style="margin-top: -15px;">
-      <b>Payment:</b> We accept Visa, MasterCard, American Express and Discover.
-      <span><%= image_tag(asset_path('visa_mastercard_american_express_discover.png'), style: 'position: relative;top: 13px;') %></span>
-    </li>
+		<li style="margin-top: -15px;">
+			<b>Payment:</b> We accept Visa, MasterCard, American Express and Discover.
+			<span><%= image_tag(asset_path('visa_mastercard_american_express_discover.png'), style: 'position: relative;top: 13px;') %></span>
+		</li>
 
-    <li>
-      <b>Check-in:</b> <br/>
-      Check-in time is 3:00 p.m. <br/>
-      Check-out time is 11:00 a.m.
-    </li>
+		<li>
+			<b>Check-in:</b> <br/>
+			Check-in time is 3:00 p.m. <br/>
+			Check-out time is 11:00 a.m.
+		</li>
 
-    <li>
-      <b>Cancellation:</b>
-      We will refund your deposit less a 10% cancellation fee if you notify us
-      <span class="medium bold">30 days prior to you arrival</span>.
-      Cancellations within 30 days of your arrival will be refunded only for the nights we are able to re-book the
-      accommodations minus a 10% service fee.
-      <p>
-        If you check out prior to your scheduled check out date we will refund only for the nights we are able to
-        re-book
-        the accommodations minus a 10% service fee.
-      </p>
-    </li>
+		<li>
+			<b>Cancellation:</b>
+			If you need to cancel, we will refund the amount that you paid <i>less</i> a <b>25% service fee</b>.
+			Guests that check out prior to the registered check-out date will forfeit the balance of the payment. If
+			anything is missing or damaged after you check out, we will charge your credit card for the cost of the
+			repair and/or replacement of the item. Please let us know if there are any accidents or problems.
+		</li>
 
-    <li>
-      <b>Laundry facilities</b> are available free of charge for guests staying 5 or more nights.
-    </li>
+		<li>
+			<b>Laundry facilities:</b> Available free of charge for guests staying 5 or more nights.
+		</li>
 
-    <li>
-      <b>Special Terms:</b> <br/>
-      Rates and policies are subject to change.<br/>
-      To provide a smoke free environment for our guests, smoking is only allowed outside. <br/>
-      No pets are allowed at the cottage.<br/>
+		<li>
+			<b>Special Terms:</b>
+			Rates and policies are subject to change.
+			To provide a smoke free environment for our guests, smoking is only allowed outside.
+			No pets are allowed at the cottage.<br/>
 
-      <p><a href="#contact" class="linked">Make a reservation inquiry.</a></p>
-    </li>
-  </ul>
+			<p><a href="#contact" class="linked">Make a reservation inquiry.</a></p>
+		</li>
+	</ul>
 </div>
 <%= section_header('Photos') %>
 <div class="wrapper medium-minor" id="photos_section">
-  <% if mobile_device? %>
-      <p>
-        It looks like you're mobile, so we didn't load the pictures right
-        away. <%= link_to('Load photos now!', 'javascript:;', class: 'linked', id: 'load_photos') %>
-      </p>
+	<% if mobile_device? %>
+		<p>
+			It looks like you're mobile, so we didn't load the pictures right
+			away. <%= link_to('Load photos now!', 'javascript:;', class: 'linked', id: 'load_photos') %>
+		</p>
 
-      <div id="gallery_ph"></div>
-  <% else %>
-      <div id="gallery_ontainer" style="height: 615px;">
-        <%= render('photos') %>
-      </div>
-  <% end %>
+		<div id="gallery_ph"></div>
+	<% else %>
+		<div id="gallery_ontainer" style="height: 615px;">
+			<%= render('photos') %>
+		</div>
+	<% end %>
 </div>
 <%= section_header('Contact') %>
 <div class="wrapper medium-minor">
-  <div class="fl w49">
-    <p class="form-text">
-      Submit a reservation inquiry using the form below.
-    </p>
+	<div class="fl w49">
+		<p class="form-text">
+			Submit a reservation inquiry using the form below.
+		</p>
 
-    <div id="form_success_box" class="alert alert-info" style="display: none;">
-      <b>Success!</b> We've received your inquiry and will get back to you at our earliest convenience.
-    </div>
-    <div id="form_error_box" class="alert alert-block alert-error fade" style="display: none;">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <h4 class="alert-heading">Oops!</h4>
+		<div id="form_success_box" class="alert alert-info" style="display: none;">
+			<b>Success!</b> We've received your inquiry and will get back to you at our earliest convenience.
+		</div>
+		<div id="form_error_box" class="alert alert-block alert-error fade" style="display: none;">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<h4 class="alert-heading">Oops!</h4>
 
-      <p class="error-message"></p>
-    </div>
-    <div class="pad10 no-pad-mobile">
-      <%= render('contact/form') %>
-    </div>
-  </div>
-  <div class="fr w49">
-    <p>
-      Need help right away? Contact us directly.
-    </p>
+			<p class="error-message"></p>
+		</div>
+		<div class="pad10 no-pad-mobile">
+			<%= render('contact/form') %>
+		</div>
+	</div>
+	<div class="fr w49">
+		<p>
+			Need help right away? Contact us directly.
+		</p>
 
-    <div class="pad10">
-      <p class="medium-major">
-        Phone: (808) 248-8980 <br/>
-        Toll Free: 1-800-327-8097
-      </p>
+		<div class="pad10">
+			<p class="medium-major">
+				Phone: (808) 248-8980 <br/>
+				Toll Free: 1-800-327-8097
+			</p>
 
-      <p class="medium-major">
-        Email: <a href="mailto:brianna@tradewindscottage.net" class="linked">brianna@tradewindscottage.net</a>
-      </p>
-    </div>
-    <div>
-      <%= image_tag(asset_path('hamoa_overview.png'), width: '310') %>
-    </div>
-  </div>
+			<p class="medium-major">
+				Email: <a href="mailto:brianna@tradewindscottage.net" class="linked">brianna@tradewindscottage.net</a>
+			</p>
+		</div>
+		<div>
+			<%= image_tag(asset_path('hamoa_overview.png'), width: '310') %>
+		</div>
+	</div>
 </div>
 <%= section_header('Hana') %>
 <div class="wrapper medium-minor">
-  <p class="medium">
-    Hana is a small town located on the <b>east side of Maui</b>. It is home to some of the
-    <a href="http://xfinity.comcast.net/slideshow/news-bestbeaches/7/" target="_blank" class="linked">
-      world’s most beautiful beaches</a>,
-    breath taking waterfalls, and majestic coastlines. From Kahului airport it is about a 50 mile drive along the
-    winding coastline. Along the way you can enjoy hiking trails, beautiful overlooks, and incredible waterfalls.
-  </p>
+	<p class="medium">
+		Hana is a small town located on the <b>east side of Maui</b>. It is home to some of the
+		<a href="http://xfinity.comcast.net/slideshow/news-bestbeaches/7/" target="_blank" class="linked">
+			world’s most beautiful beaches</a>,
+		breath taking waterfalls, and majestic coastlines. From Kahului airport it is about a 50 mile drive along the
+		winding coastline. Along the way you can enjoy hiking trails, beautiful overlooks, and incredible waterfalls.
+	</p>
 
-  <p>
-    Hana town is limited when it comes to night life and dining options. There is one gas station and two small
-    stores (<b>closes at 7:30 PM</b>). If you are staying for several nights, we recommend buying groceries in Kahului
-    before driving to Hana. Travaasa Hotel has a bar and restaurant, although it is a bit pricey, and so does
-    the Hana Ranch Restaurant (also pricey). There are a several locally owned eateries and lunch
-    wagons around town. A local favorite is
-    <a href="http://www.yelp.com/biz/thai-food-by-pranee-hana" target="_blank" class="linked" title="view Pranee's on Yelp">Pranee's</a>,
-    which has excellent Thai food. Checkout
-    <a href="http://www.yelp.com/search?find_desc=&find_loc=H%C4%81na%2C+HI&ns=1&ls=2b7c66da1def68e9" target="_blank" class="linked">Hana
-      on Yelp</a>
-    for a list of popular activities and food options.
-  </p>
+	<p>
+		Hana town is limited when it comes to night life and dining options. There is one gas station and two small
+		stores (<b>closes at 7:30 PM</b>). If you are staying for several nights, we recommend buying groceries in
+		Kahului
+		before driving to Hana. Travaasa Hotel has a bar and restaurant, although it is a bit pricey, and so does
+		the Hana Ranch Restaurant (also pricey). There are a several locally owned eateries and lunch
+		wagons around town. A local favorite is
+		<a href="http://www.yelp.com/biz/thai-food-by-pranee-hana" target="_blank" class="linked" title="view Pranee's on Yelp">Pranee's</a>,
+		which has excellent Thai food. Checkout
+		<a href="http://www.yelp.com/search?find_desc=&find_loc=H%C4%81na%2C+HI&ns=1&ls=2b7c66da1def68e9" target="_blank" class="linked">Hana
+			on Yelp</a>
+		for a list of popular activities and food options.
+	</p>
 
-  <p>
-    There are a variety of outdoor activities, some of which we’ve listed below. It is nice to have a couple of days to
-    spend in Hana because it is a long trip out here. That way you have some time to just relax and explore this side of
-    the island.
-  </p>
+	<p>
+		There are a variety of outdoor activities, some of which we’ve listed below. It is nice to have a couple of
+		days to
+		spend in Hana because it is a long trip out here. That way you have some time to just relax and explore this
+		side of
+		the island.
+	</p>
 
-  <p>
-    For more information on Hana please visit
-    <a target="_blank" href="http://www.hanamaui.com" class="linked">hanamaui.com</a>
-  </p>
-  <h4>Activities</h4>
-  <ul class="pad">
-    <li>Go hang gliding down the road (1 minute away):
-      <a target="_blank" href="http://www.hangglidingmaui.com" class="linked">hangglidingmaui.com</a></li>
-    <li>Spelunking in lava tube (2 minutes away):
-      <a target="_blank" href="http://www.mauicave.com" class="linked">mauicave.com</a>
-    </li>
-    <li>Go kayaking, snorkeling, surfing, or free diving (10 minutes away):
-      <a target="_blank" href="http://www.hanabaykayaks.com" class="linked">hanabaykayaks.com</a></li>
-    <li>Guided hike and taro patch tour at Kapahu Living Farm (45 minutes away):
-      <a target="_blank" href="http://kipahulu.org/hike.html" class="linked">kipahulu.org/hike.html</a></li>
-    <li>Ohe’o (7 Sacred Pools) and bamboo forest (45 minutes away):
-      <a target="_blank" href="http://www.nps.gov/hale/index.htm" class="linked">nps.gov/hale/</a></li>
-    <li>Horse back riding (45 minutes away):
-      <a target="_blank" href="http://www.mauistables.com" class="linked">mauistables.com</a>
-    </li>
-  </ul>
-  <h4>Location</h4>
+	<p>
+		For more information on Hana please visit
+		<a target="_blank" href="http://www.hanamaui.com" class="linked">hanamaui.com</a>
+	</p>
+	<h4>Activities</h4>
+	<ul class="pad">
+		<li>Go hang gliding down the road (1 minute away):
+			<a target="_blank" href="http://www.hangglidingmaui.com" class="linked">hangglidingmaui.com</a></li>
+		<li>Spelunking in lava tube (2 minutes away):
+			<a target="_blank" href="http://www.mauicave.com" class="linked">mauicave.com</a>
+		</li>
+		<li>Go kayaking, snorkeling, surfing, or free diving (10 minutes away):
+			<a target="_blank" href="http://www.hanabaykayaks.com" class="linked">hanabaykayaks.com</a></li>
+		<li>Guided hike and taro patch tour at Kapahu Living Farm (45 minutes away):
+			<a target="_blank" href="http://kipahulu.org/hike.html" class="linked">kipahulu.org/hike.html</a></li>
+		<li>Ohe’o (7 Sacred Pools) and bamboo forest (45 minutes away):
+			<a target="_blank" href="http://www.nps.gov/hale/index.htm" class="linked">nps.gov/hale/</a></li>
+		<li>Horse back riding (45 minutes away):
+			<a target="_blank" href="http://www.mauistables.com" class="linked">mauistables.com</a>
+		</li>
+	</ul>
+	<h4>Location</h4>
 
-  <p>The map below shows the route from the Kahului Airport (OGG) to the Tradewind Cottage (Approximately 52 miles).</p>
-  <% unless Rails.env.development? %>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m29!1m12!1m3!1d238610.7238657256!2d-156.3722470141209!3d20.860254975716938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m14!1i0!3e6!4m5!1s0x7954d2b01b8e0419%3A0xc35ea962dd1a9041!2sKahului+Airport%2C+1+Kahului+Airport+Rd%2C+Kahului%2C+HI+96732!3m2!1d20.896791999999998!2d-156.43293799999998!4m5!1s0x7954ada37cc29da1%3A0xb9089f2ff788b1df!2sHana&#39;s+Tradewind+Cottages%2C+135+Alalele+Rd%2C+Hana%2C+HI+96713!3m2!1d20.790406!2d-156.01775899999998!5e0!3m2!1sen!2sus!4v1394938868443" width="100%" height="450" frameborder="0" style="border:0"></iframe>
-  <% end %>
+	<p>The map below shows the route from the Kahului Airport (OGG) to the Tradewind Cottage (Approximately 52
+		miles).</p>
+	<% unless Rails.env.development? %>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m29!1m12!1m3!1d238610.7238657256!2d-156.3722470141209!3d20.860254975716938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m14!1i0!3e6!4m5!1s0x7954d2b01b8e0419%3A0xc35ea962dd1a9041!2sKahului+Airport%2C+1+Kahului+Airport+Rd%2C+Kahului%2C+HI+96732!3m2!1d20.896791999999998!2d-156.43293799999998!4m5!1s0x7954ada37cc29da1%3A0xb9089f2ff788b1df!2sHana&#39;s+Tradewind+Cottages%2C+135+Alalele+Rd%2C+Hana%2C+HI+96713!3m2!1d20.790406!2d-156.01775899999998!5e0!3m2!1sen!2sus!4v1394938868443" width="100%" height="450" frameborder="0" style="border:0"></iframe>
+	<% end %>
 
 </div>
