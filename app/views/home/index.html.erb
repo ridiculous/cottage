@@ -78,10 +78,15 @@
 							<%= submit_tag('Check Availability', disable_with: 'Checking ...') %>
 						</div>
 						<div class="fl pt4">
-                <span class="available">Available! <a href="#contact" class="send_inquiry linked">Submit an
-									inquiry</a></span>
-            <span class="unavailable">Unavailable.<i style="color:#666"> Try our sister site
-							<a href="http://hanamaui.net" class="linked">hanamaui.net</a></i></span>
+                <span class="available">
+									Available! <a id="send_inquiry" href="#contact" class="linked scroll-to">Submit an inquiry</a>
+								</span>
+            <span class="unavailable">
+							Unavailable.
+							<span style="color:#666">
+								Try our sister site <a href="http://hanamaui.net" class="linked">hanamaui.net</a>
+							</span>
+						</span>
 						</div>
 						<div style="clear:both"></div>
 					</td>
@@ -136,7 +141,7 @@
 			To provide a smoke free environment for our guests, smoking is only allowed outside.
 			No pets are allowed at the cottage.<br/>
 
-			<p><a href="#contact" class="linked">Make a reservation inquiry.</a></p>
+			<p><a href="#contact" class="linked scroll-to">Make a reservation inquiry.</a></p>
 		</li>
 	</ul>
 </div>

@@ -7,12 +7,22 @@
         return r;
     }
 
+    function squeeze(str) {
+        return str.replace(/\s+/g, ' ');
+    }
+
     function initFriendlyLinks() {
         var links = $('a');
         for (var i = 0; i < links.length; i++) {
-            var $this = $(links[i]), title = $this.attr("title"), content = $this.html(), img_alt = $this.find('img').attr("alt");
-            if (img_alt) $this.attr("title", img_alt);
-            else if (!title) $this.attr("title", content);
+            var $this = $(links[i])
+                , title = $this.attr("title")
+                , content = $this.html()
+                , img_alt = $this.find('img').attr("alt");
+            if (img_alt) {
+                $this.attr("title", img_alt);
+            } else if (!title) {
+                $this.attr("title", squeeze(content));
+            }
         }
     }
 
@@ -20,7 +30,7 @@
         var BASE_PRICE = parseFloat($('#base_rate').val()),
             TAX_RATE = parseFloat($('#tax_rate').val());
 
-        $('#people_count').bind('keyup', function () {
+        $('#people_count').on('keyup', function () {
             var count = parseInt($(this).val().replace(/[^\d+]/, '')), base_price = BASE_PRICE;
             if (!count) count = 2;
             if (count != 1 && count != 2) base_price = base_price + ((count - 2) * 25);
@@ -31,7 +41,7 @@
     function initCalendarAvailability() {
         var $available = $('.available'), $unavailable = $('.unavailable'), $ebox = $('#error_box');
 
-        $('#check_avail').bind('ajax:complete', function (evt, data, status, xhr) {
+        $('#check_avail').on('ajax:complete', function (evt, data, status, xhr) {
             $ebox.removeClass('in');
             if (status == 'success') {
                 $ebox.hide().removeClass('in');
@@ -49,13 +59,13 @@
             }
         });
 
-        $('.send_inquiry').bind('click', function () {
+        $('#send_inquiry').on('click', function () {
             $('#contact_arrival_date').val($('#arrival_date_r').val());
             $('#contact_departure_date').val($('#departure_date_r').val());
             $('#contact_number_of_people').val($('#people_count').val())
         });
 
-        $('#view_entire_calendar').bind('click', function () {
+        $('#view_entire_calendar').on('click', function () {
             var $cal = $('#vrbo_iframe');
             $(this).toggleClass('shown');
             if ($(this).hasClass('shown')) {
@@ -96,7 +106,7 @@
         var $error_box = $('#form_error_box');
 
         $('#new_contact')
-            .bind('ajax:success', function (evt, data, status, xhr) {
+            .on('ajax:success', function (evt, data, status, xhr) {
                 $('div.field_with_errors').children().unwrap('<div class="field_with_errors" />');
                 $error_box.hide().removeClass('in');
                 $('.form-text').html('');
@@ -104,7 +114,7 @@
                     $('#form_success_box').fadeIn(200);
                 });
             })
-            .bind('ajax:error', function (evt, xhr, status, error) {
+            .on('ajax:error', function (evt, xhr, status, error) {
                 $error_box
                     .show()
                     .addClass('in')
@@ -112,7 +122,7 @@
                     .html(parseErrorMessage(xhr.responseText));
             });
 
-        $('button[data-dismiss]').bind('click', function () {
+        $('button[data-dismiss]').on('click', function () {
             $(this).parent().fadeOut(200).removeClass('in');
         });
     }
@@ -154,7 +164,17 @@
             }); // filmstrip_position:'top'
     }
 
+    function initScrollTo() {
+        $('.scroll-to').on('click', function () {
+            $.scrollTo($(this).attr('href'), 500);
+        });
+        $('#logo').find('h1').on('click', function () {
+            $.scrollTo('#front', 500);
+        });
+    }
+
     $(function () {
+        var main_pic_url = document.getElementById('main_pic_url').value;
 
         initRateCalculator();
         initCalendarAvailability();
@@ -162,15 +182,8 @@
         initLazyPhotos();
         initFriendlyLinks();
         initPhotoGallery();
-        var main_pic_url = document.getElementById('main_pic_url').value;
-
+        initScrollTo();
         $('#front').css('background-image', "url('" + main_pic_url + "')").show();
         $('.dp').datepicker();
-        $('#page_nav li a, .send_inquiry').bind('click', function () {
-            $.scrollTo($(this).attr('href'), 500);
-        });
-        $('#logo').find('h1').bind('click', function () {
-            $.scrollTo('#front', 500);
-        });
     });
 })();
