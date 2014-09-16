@@ -7,7 +7,6 @@
   <title>Hana's Tradewind Cottage</title>
   <%= stylesheet_link_tag('application', media: 'all') %>
   <%= stylesheet_link_tag('mobile') if mobile_device? %>
-  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag('favicon.ico') %>
   <meta name="google-site-verification" content="KDeQ0u-a5jxWH8XmJ5lRCxij-xzkkwrpYhQ8rtAXEbM"/>
@@ -74,14 +73,15 @@
     <span>Hawaii State Tax ID # W67123967-01</span>
   </div>
 </footer>
-</body>
+<%= javascript_include_tag 'application' %>
 <script type="text/javascript">
-    $(function () {
+	$(function () {
 
-        $('#logo h1').bind('click', function () {
-            window.location.hash = '#top';
-        });
+		$('#logo h1').bind('click', function () {
+			window.location.hash = '#top';
+		});
 
-    });
+	});
 </script>
+</body>
 </html>
