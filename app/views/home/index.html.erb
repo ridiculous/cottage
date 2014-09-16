@@ -40,8 +40,11 @@
 		<li>Nightly rate for <%= text_field_tag(:people_count, 2, class: 'instep', maxlength: 2) %> people
 			<span>+<%= tax_rate * 100 %>% tax</span> =
 			<span class="bold" id="rate_result">$<%= ((tax_rate + 1) * base_rate.to_f).round(2) %></span></li>
-		<li>The cottage can accommodate a <b>maximum of 4 guests</b>. <b>No pets.</b></li>
-		<li><b>Note:</b> There is a charge of $25 per night for each additional person.</li>
+		<li>There is a charge of $25 per night for each additional person. For the rate of $<%= base_rate.to_i %> per
+			night + tax for 2 people, you would have the use of just <b>one</b> of the bedrooms. If there are 2 in your party but you
+			need both rooms, please notify us ahead of time, as it is an additional $25 per night + tax.
+		</li>
+		<li>The cottage can accommodate a <b>maximum of 4</b> guests. <b>No pets.</b> If you have a service animal, please notify us ahead of time.</li>
 	</ul>
 
 	<h4>Availability</h4>
