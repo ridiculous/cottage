@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
 
-ruby '2.1.1'
+ruby File.read(File.expand_path('../.ruby-version', __FILE__)).strip.sub('ruby-', '')
 
 gem 'rails'
 
 gem 'pg'
-gem 'thin'
+# gem 'thin'
 gem 'vrbo'
+gem 'unicorn', '~> 4.9.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
