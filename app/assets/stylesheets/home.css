@@ -16,19 +16,6 @@ body {
 li {
     list-style: none;
 }
-
-#page {
-    background-color: #f0f0f0;
-    width: 750px;
-    margin: 0;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.row {
-    width: 100%;
-}
-
 header {
     font-family: "Georgia", "Times New Roman", Helvetica, Arial, sans-serif;
     background-color: #004F9D;
@@ -74,6 +61,18 @@ header {
     right: 0;
     left: 0;
     z-index: 10000;
+}
+
+#page {
+  background-color: #f0f0f0;
+  width: 750px;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row {
+  width: 100%;
 }
 
 .box.blue {
