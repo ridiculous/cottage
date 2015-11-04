@@ -51,8 +51,11 @@
 	<h4>Availability</h4>
 
 	<p class="medium">
-		Our next opening is <span class="green"><%= @availability.start_at.to_formatted_s(:long) %></span>
-		for <%= pluralize(@availability.duration, 'night') %>. <%= @availability.error %>
+      <% if @calendar.available_dates.present? && @calendar.refresh_date %>
+          Our next opening is <span class="green"><%= @availability.start_at.to_formatted_s(:long) %></span>
+          for <%= pluralize(@availability.duration, 'night') %>
+          (<small>updated <%= time_ago_in_words(@calendar.refresh_date) %> ago</small>).
+      <% end %>
 	</p>
 
 	<p class="medium">
@@ -79,7 +82,7 @@
 					<td></td>
 					<td>
 						<div class="fl">
-							<%= submit_tag('Check Availability', disable_with: 'Checking ...') %>
+							<%= submit_tag('Check Availability', data: { disable_with: 'Checking ...' }) %>
 						</div>
 						<div class="fl pt4">
                 <span class="available">
@@ -98,7 +101,7 @@
 			</table>
 		<% end %>
 	</div>
-	<%= hidden_field_tag(:vrbo_calendar_url, VRBO::Calendar.url) %>
+	<%= hidden_field_tag(:vrbo_calendar_url, VRBO::Calendar.new.url) %>
 	<div id="iframe_ph"></div>
 
 	<h4>Reservation Policies</h4>

@@ -5,11 +5,12 @@ class Calendar < ActiveRecord::Base
 
   class << self
     def check_availability(arrival, depart)
-      VRBO::Calendar.available?(arrival, depart, latest.try(:available_dates))
+      VRBO::Calendar.new.available?(arrival, depart, latest.try(:available_dates))
     end
 
     def outdated?
-      !latest || latest.refresh_date < 45.minutes.ago
+      latest_record = latest
+      !latest_record || latest_record.available_dates.blank? || latest_record.refresh_date < 45.minutes.ago
     end
 
     def latest

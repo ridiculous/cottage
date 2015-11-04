@@ -5,7 +5,7 @@ class CalendarController < ApplicationController
 
     if date_range.valid?
       if Calendar.outdated?
-        Calendar.create(available_dates: VRBO::Calendar.find_available_dates)
+        Calendar.create(available_dates: VRBO::Calendar.new.available_dates)
       end
       render json: date_range.open?, status: :ok
     else
