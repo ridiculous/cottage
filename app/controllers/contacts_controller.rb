@@ -10,7 +10,7 @@ class ContactsController < ApplicationController
     @contact.arrival_date = DateRange.convert(contact_params[:arrival_date])
 
     if @contact.save
-      Inquiry.new_inquiry(@contact).deliver
+      Inquiry.new_inquiry(@contact).deliver_now
       render json: nil, status: :created
     else
       render json: @contact.errors, status: :unprocessable_entity
