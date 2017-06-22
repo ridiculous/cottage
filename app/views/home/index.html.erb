@@ -101,8 +101,10 @@
 			</table>
 		<% end %>
 	</div>
-	<%= hidden_field_tag(:vrbo_calendar_url, VRBO::Calendar.new.url) %>
+  <% calendar_url = VRBO::Calendar.new.url %>
+	<%= hidden_field_tag(:vrbo_calendar_url, calendar_url) %>
 	<div id="iframe_ph"></div>
+  <p id="calender_link"><%= link_to calendar_url, calendar_url, title: "Link to calendar for VRBO #293021", class: "linked hidden" %></p>
 
 	<h4>Reservation Policies</h4>
 

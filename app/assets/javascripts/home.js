@@ -71,14 +71,17 @@
             if ($(this).hasClass('shown')) {
                 if (!$cal.length) {
                     var src = document.getElementById('vrbo_calendar_url').value;
-                    document.getElementById('iframe_ph').innerHTML = '<iframe id="vrbo_iframe" width="600" height="1040" frameborder="0" scrolling="0" allowtransparency="true" src="' + src + '"></iframe>';
-                    $('#check_avail').addClass('hidden').slideUp(200);
+                    var iFrameHTML = '<iframe id="vrbo_iframe" width="600" height="1040" frameborder="0" scrolling="0" allowtransparency="true" src="' + src + '"></iframe>';
+                    document.getElementById('iframe_ph').innerHTML = iFrameHTML;
+                  $('#check_avail').addClass('hidden').slideUp(200);
                 } else {
                     $cal.slideDown(200);
                     $('#check_avail').slideUp(200);
                 }
+                $('#calender_link').find('a').removeClass('hidden');
                 $(this).text('hide the calendar');
             } else {
+              $('#calender_link').find('a').addClass('hidden');
                 $cal.slideUp(200);
                 $('#check_avail').slideDown(200);
                 $(this).text('view the calendar');
