@@ -5,7 +5,7 @@ module HomeHelper
   end
 
   def tax_rate
-    0.135
+    0.145
   end
 
   def section_header(title)
