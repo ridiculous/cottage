@@ -59,53 +59,8 @@
 	</p>
 
 	<p class="medium">
-		Check availability for your trip by entering your arrival and departure date below. Optionally, you can
-		<a href="javascript:;" id="view_entire_calendar" class="linked">view the calendar</a>.
-	</p>
-
-	<div id="error_box" class="alert alert-block alert-error fade" style="display: none;">
-		<button type="button" class="close" data-dismiss="alert">&times;</button>
-		<p class="error-message" style="margin: 3px;"></p>
-	</div>
-	<div class="pl20 no-pad-mobile">
-		<%= form_tag(calendar_create_path, remote: true, id: 'check_avail') do %>
-			<table class="basic w600">
-				<tr>
-					<td style="width: 120px"><label for="arrival_date_r">Arrival date</label></td>
-					<td><%= text_field_tag(:arrival_date, @availability.start_at.strftime('%m/%d/%Y'), placeholder: 'Arrival date', id: 'arrival_date_r', class: 'dp') %></td>
-				</tr>
-				<tr>
-					<td><label for="departure_date_r">Departure date</label></td>
-					<td><%= text_field_tag(:departure_date, (@availability.start_at + 2.days).strftime('%m/%d/%Y'), placeholder: 'Departure date', id: 'departure_date_r', class: 'dp') %></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>
-						<div class="fl">
-							<%= submit_tag('Check Availability', data: { disable_with: 'Checking ...' }) %>
-						</div>
-						<div class="fl pt4">
-                <span class="available">
-									Available! <a id="send_inquiry" href="#contact" class="linked scroll-to">Submit an inquiry</a>
-								</span>
-            <span class="unavailable">
-							Unavailable.
-							<span style="color:#666">
-								Try our sister site <a href="http://hanamaui.net" class="linked">hanamaui.net</a>
-							</span>
-						</span>
-						</div>
-						<div style="clear:both"></div>
-					</td>
-				</tr>
-			</table>
-		<% end %>
-	</div>
-  <% calendar_url = VRBO::Calendar.new.url %>
-	<%= hidden_field_tag(:vrbo_calendar_url, calendar_url) %>
-	<div id="iframe_ph"></div>
-  <p id="calender_link"><%= link_to calendar_url, calendar_url, title: "Link to calendar for VRBO #293021", class: "linked hidden" %></p>
-
+		Check availability for your trip at <a href="https://www.vrbo.com/293021" target="_blank">https://www.vrbo.com/293021</a>
+  </p>
 	<h4>Reservation Policies</h4>
 
 	<ul class="pad medium-minor">
