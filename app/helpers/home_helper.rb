@@ -1,7 +1,7 @@
 module HomeHelper
 
   def base_rate
-    '195.00'
+    '225.00'
   end
 
   def tax_rate

@@ -31,5 +31,5 @@ Cottage::Application.configure do
       :host => 'localhost',
       :port => 3000
   }
-  config.middleware.insert_before 'Rails::Rack::Logger', 'QuietAssets'
+  # config.middleware.insert_before 'Rails::Rack::Logger', 'QuietAssets'
 end
