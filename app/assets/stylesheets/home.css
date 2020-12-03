@@ -166,10 +166,6 @@ header {
     font-size: 18px;
 }
 
-a {
-    color: #03c
-}
-
 a:hover,
 #page_nav li a:hover,
 #page_nav li.active a {
@@ -224,7 +220,7 @@ footer span {
 #front {
     height: 800px;
     background: none;
-    background-position: center bottom;
+    background-position: center center;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -266,13 +262,14 @@ h2 {
     line-height: 22px;
 }
 
-.medium-major {
-    font-size: 20px;
-    line-height: 24px;
+.medium-major, h4 {
+    font-size: 22px;
+    line-height: 26px;
 }
 
-.large-minor {
-    font-size: 17px;
+h3 {
+    font-size: 25px;
+    line-height: 30px;
 }
 
 .large {
@@ -501,16 +498,13 @@ button.close {
 
 a.linked {
     text-decoration: none;
-    color: #0069D0;
 }
 
 a.linked:visited {
     text-decoration: none;
-    color: #005AB3;
 }
 
 a.linked:hover {
-    color: #006FDE;
     text-decoration: underline;
 }
 
@@ -525,11 +519,11 @@ pre {
 }
 
 a {
-    color: #000;
+    color: #4d95fb
 }
 
 a:visited {
-    color: #666;
+    color: #4d95fb;
 }
 
 div.field, div.actions {

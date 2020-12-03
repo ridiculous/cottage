@@ -1,7 +1,7 @@
 <%= content_tag(:div, '', id: 'front') unless mobile_device? %>
 <%= hidden_field_tag(:base_rate, base_rate) %>
 <%= hidden_field_tag(:tax_rate, tax_rate) %>
-<%= hidden_field_tag(:main_pic_url, asset_path('walking-up-front-deck-large.jpg')) %>
+<%= hidden_field_tag(:main_pic_url, asset_path('front-deck-table-large.jpg')) %>
 <div class="wrapper medium">
 	<h2 class="c" style="margin-top: 0;">
 		Welcome to Hana's Tradewind Cottage
@@ -29,14 +29,27 @@
 	</p>
 
 	<h4>Rates</h4>
-	<ul class="pad medium-minor">
-		<li>Base rate is $<%= base_rate %></li>
-		<li>Base rate
-			<span>+ <%= (tax_rate * 100).round(2) %>% tax</span> =
-			<span class="bold" id="rate_result">$<%= ((tax_rate + 1) * base_rate.to_f).round(2) %></span> per night</li>
-		<li>The cottage can accommodate a <b>maximum of 4</b> guests. <b>No pets.</b> If you have a service animal, please notify us ahead of time.</li>
-		<li>$<%= cleaning_fee %> cleaning fee for one or two night reservations.  No cleaning fee for stays of three nights or more.</li>
-	</ul>
+  <div class="pad medium-minor pad10">
+    <table class="basic" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td>Base rate</td>
+        <td>$<%= base_rate %></td>
+      </tr>
+      <tr>
+        <td>Cleaning fee</td>
+        <td>+ $<%= cleaning_fee %></td>
+      </tr>
+      <tr>
+        <td><%= (tax_rate * 100).round(2) %>% tax</td>
+        <td>+ $<%= tax.round(2) %></td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td style="border-top: 1px solid">$<%= (base_rate.to_f + cleaning_fee.to_f + tax).round(2) %></td>
+      </tr>
+    </table>
+    <p>The cottage can accommodate a <b>maximum of 4</b> guests. <b>No pets.</b> If you have a service animal, please notify us ahead of time.</p>
+  </div>
 
 	<h4>Availability</h4>
 
@@ -49,7 +62,7 @@
 		<li>
 			<b>Minimum stay:</b> We have a two night minimum stay for all reservations made more than a week in advance,
 			except when there is an open night “sandwiched” between two existing reservations. We are happy to accept one
-			night stays 7 days in advance. There will be a $<%= cleaning_fee %> cleaning fee for 1 night stays.
+			night stays 7 days in advance.
 		</li>
 
 		<li>
@@ -132,12 +145,12 @@
 		</p>
 
 		<div class="pad10">
-			<p class="medium-major">
+			<p class="medium">
 				Phone: (808) 248-8980 <br/>
 				Toll Free: 1-800-327-8097
 			</p>
 
-			<p class="medium-major">
+			<p class="medium">
 				Email: <a href="mailto:brianna@tradewindscottage.net" class="linked">brianna@tradewindscottage.net</a>
 			</p>
 		</div>
@@ -145,6 +158,7 @@
 			<%= image_tag(asset_path('hamoa_overview.png'), width: '310') %>
 		</div>
 	</div>
+  <div style="clear:both"></div>
 </div>
 <%= section_header('Hana') %>
 <div class="wrapper medium-minor">

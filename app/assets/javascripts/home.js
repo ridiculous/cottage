@@ -151,7 +151,8 @@
                 show_captions: true,
                 autoplay: true,
                 frame_width: 150,
-                frame_height: 200
+                frame_height: 200,
+                panel_scale: 'fit'
             }); // filmstrip_position:'top'
     }
 
