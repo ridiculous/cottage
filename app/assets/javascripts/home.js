@@ -26,18 +26,6 @@
         }
     }
 
-    function initRateCalculator() {
-        var BASE_PRICE = parseFloat($('#base_rate').val()),
-            TAX_RATE = parseFloat($('#tax_rate').val());
-
-        $('#people_count').on('keyup', function () {
-            var count = parseInt($(this).val().replace(/[^\d+]/, '')), base_price = BASE_PRICE;
-            if (!count) count = 2;
-            if (count != 1 && count != 2) base_price = base_price + ((count - 2) * 25);
-            $('#rate_result').text(accounting.formatMoney(base_price + (base_price * TAX_RATE)));
-        });
-    }
-
     function initCalendarAvailability() {
         var $available = $('.available'), $unavailable = $('.unavailable'), $ebox = $('#error_box');
 
@@ -62,7 +50,7 @@
         $('#send_inquiry').on('click', function () {
             $('#contact_arrival_date').val($('#arrival_date_r').val());
             $('#contact_departure_date').val($('#departure_date_r').val());
-            $('#contact_number_of_people').val($('#people_count').val())
+            $('#contact_number_of_people').val('2')
         });
 
         $('#view_entire_calendar').on('click', function () {
@@ -153,17 +141,17 @@
     }
 
     function initPhotoGallery() {
-        $('#gallery_ontainer')
+        $('#gallery_container')
             .find('ul')
             .galleryView({
                 panel_width: 900,
-                panel_height: 500,
+                panel_height: 900,
                 panel_animation: 'crossfade',
                 transition_speed: 600,
                 show_captions: true,
                 autoplay: true,
                 frame_width: 150,
-                frame_height: 75
+                frame_height: 200
             }); // filmstrip_position:'top'
     }
 
@@ -179,7 +167,6 @@
     $(function () {
         var main_pic_url = document.getElementById('main_pic_url').value;
 
-        initRateCalculator();
         initCalendarAvailability();
         initContactForm();
         initLazyPhotos();

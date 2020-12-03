@@ -1,9 +1,9 @@
 <%= content_tag(:div, '', id: 'front') unless mobile_device? %>
 <%= hidden_field_tag(:base_rate, base_rate) %>
 <%= hidden_field_tag(:tax_rate, tax_rate) %>
-<%= hidden_field_tag(:main_pic_url, asset_path('front-main.jpg')) %>
+<%= hidden_field_tag(:main_pic_url, asset_path('walking-up-front-deck-large.jpg')) %>
 <div class="wrapper medium">
-	<h2 class="c light-gray" style="margin-top: 0;">
+	<h2 class="c" style="margin-top: 0;">
 		Welcome to Hana's Tradewind Cottage
 	</h2>
 
@@ -12,17 +12,11 @@
 		secluded Tradewinds Cottage, you will
 		discover the Hawaii that you came to see.
 	</p>
-
 	<p>
-		Surrounded by exotic flowers and tropical fruit trees, our two bedroom, one bath cottage has <b>Wi-Fi</b>,
-		<b>cable TV</b>, <b>DVD and CD stereo</b>. There is a gas cook top, refrigerator and microwave oven in the
-		newly remodeled kitchen with a propane barbeque outside on the covered deck.
-	</p>
-
+    Surrounded by exotic flowers and tropical fruit trees, our two bedroom, one bath cottage has recently been beautifully remodeled. The kitchen features granite counter tops, a gas range, coffee maker and microwave. There is satellite TV, DVD player and WiFi.
+  </p>
 	<p>
-		The cottage has a queen size bed and two twin beds. You'll enjoy the splendor of the
-		slopes of Haleakala while relaxing in your private hot tub or cooking your favorite island-style feast on the
-		barbeque under your covered lanai.
+    The cottage has a queen size bed in the master bedroom and two twin beds in the 2nd bedroom.
 	</p>
 </div>
 
@@ -37,15 +31,11 @@
 	<h4>Rates</h4>
 	<ul class="pad medium-minor">
 		<li>Base rate is $<%= base_rate %></li>
-		<li>Nightly rate for <%= text_field_tag(:people_count, 2, class: 'instep', maxlength: 2) %> people
-			<span>+<%= (tax_rate * 100).round(2) %>% tax</span> =
-			<span class="bold" id="rate_result">$<%= ((tax_rate + 1) * base_rate.to_f).round(2) %></span></li>
-		<li>There is a charge of $25 per night for each additional person. For the rate of $<%= base_rate.to_i %> per
-			night + tax for 2 people, you would have the use of just <b>one</b> of the bedrooms. If there are 2 in your party but you
-			need both rooms, please notify us ahead of time, as it is an additional $25 per night + tax.
-		</li>
+		<li>Base rate
+			<span>+ <%= (tax_rate * 100).round(2) %>% tax</span> =
+			<span class="bold" id="rate_result">$<%= ((tax_rate + 1) * base_rate.to_f).round(2) %></span> per night</li>
 		<li>The cottage can accommodate a <b>maximum of 4</b> guests. <b>No pets.</b> If you have a service animal, please notify us ahead of time.</li>
-		<li>$50 cleaning fee for one or two night reservations.  No cleaning fee for stays of three nights or more.</li>
+		<li>$<%= cleaning_fee %> cleaning fee for one or two night reservations.  No cleaning fee for stays of three nights or more.</li>
 	</ul>
 
 	<h4>Availability</h4>
@@ -59,7 +49,7 @@
 		<li>
 			<b>Minimum stay:</b> We have a two night minimum stay for all reservations made more than a week in advance,
 			except when there is an open night “sandwiched” between two existing reservations. We are happy to accept one
-			night stays 7 days in advance. There will be a $50 cleaning fee for 1 night stays.
+			night stays 7 days in advance. There will be a $<%= cleaning_fee %> cleaning fee for 1 night stays.
 		</li>
 
 		<li>
@@ -111,7 +101,7 @@
 
 		<div id="gallery_ph"></div>
 	<% else %>
-		<div id="gallery_ontainer" style="height: 615px;">
+		<div id="gallery_container" style="height: 1155px;">
 			<%= render('photos') %>
 		</div>
 	<% end %>
