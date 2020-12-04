@@ -36,12 +36,12 @@
         <td>$<%= base_rate %></td>
       </tr>
       <tr>
-        <td>Cleaning fee</td>
-        <td>+ $<%= cleaning_fee %></td>
-      </tr>
-      <tr>
         <td><%= (tax_rate * 100).round(2) %>% tax</td>
         <td>+ $<%= tax.round(2) %></td>
+      </tr>
+      <tr>
+        <td>Cleaning fee</td>
+        <td>+ $<%= cleaning_fee %></td>
       </tr>
       <tr>
         <td>Total</td>

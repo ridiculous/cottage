@@ -13,7 +13,7 @@ module HomeHelper
   end
 
   def tax
-    tax_rate * (base_rate.to_f + cleaning_fee.to_f)
+    tax_rate * base_rate.to_f
   end
 
   def section_header(title)
