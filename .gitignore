@@ -8,3 +8,6 @@ tmp/**/*
 .env
 .idea/misc.xml
 config/database.yml
+/config/master.key
+public/assets
+node_modules

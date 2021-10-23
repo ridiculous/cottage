@@ -34,13 +34,13 @@
         <td><%= f.label(:message) %></td>
         <td>
           <div>
-            <%= f.text_area(:message, rows: 2, placeholder: 'Write a message (optional)') %>
+            <%= f.text_area(:message, rows: 2, placeholder: 'Write a message') %>
           </div>
         </td>
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td><%= f.submit('Submit Inquiry', data: { disable_with: 'Submitting ..' }) %></td>
+        <td><%= f.submit('Submit Inquiry', data: { disable_with: 'Submitting ..' }, style: "width: 265px") %></td>
       </tr>
     </table>
 <% end %>

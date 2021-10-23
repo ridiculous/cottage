@@ -9,11 +9,9 @@ Reservation info:
     Email: <%= @contact.email || '[n/a]' %>
     Address: <%= @contact.address || '[n/a]' %>
     Phone: <%= @contact.phone || '[n/a]' %>
-    Duraration: <%= pluralize(@date_range.diff_days, "Night") rescue 'error' %>
+    Duration: <%= pluralize(@date_range.diff_days, "Night") rescue 'error' %>
     Arrival Date: <%= @contact.arrival_date.try(:strftime, '%m/%d/%Y') || '[n/a]' %>
     Departure Date: <%= @contact.departure_date.try(:strftime, '%m/%d/%Y') || '[n/a]' %>
     Message: <%= @contact.message_for_email %>
-
-System says requested dates are <%= 'NOT ' unless @date_range.open? %>AVAILABLE and the inquiry was sent from a <%= @contact.device %>.
 
 Have a great day!
