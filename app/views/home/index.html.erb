@@ -33,11 +33,7 @@
     <table class="basic" cellpadding="0" cellspacing="0" border="0">
       <tr>
         <td>Base rate</td>
-        <td>$<%= base_rate %></td>
-      </tr>
-			<tr>
-        <td>Winter Rate (<b>Dec 16th - March 31st</b>)</td>
-        <td>$375.00</td>
+        <td>$<%= base_rate %>*</td>
       </tr>
       <tr>
         <td><%= (tax_rate * 100).round(2) %>% tax</td>
@@ -52,6 +48,7 @@
         <td style="border-top: 1px solid">$<%= (base_rate.to_f + cleaning_fee.to_f + tax).round(2) %></td>
       </tr>
     </table>
+		<p><b>*</b> The Winter Rate will be $375 a night, starting December 16th, 2022 until March 31st, 2023.</p>
     <p>The cottage can accommodate a <b>maximum of 4</b> guests. <b>No pets.</b> If you have a service animal, please notify us ahead of time.</p>
   </div>
 
