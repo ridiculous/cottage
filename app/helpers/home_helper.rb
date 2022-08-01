@@ -2,7 +2,7 @@ module HomeHelper
 
   def base_rate(date = Date.today)
     if (Date.parse("December 16, 2022")..Date.parse("March 31, 2023")).include?(date)
-      '374.00'
+      '375.00'
     else
       '325.00'
     end
